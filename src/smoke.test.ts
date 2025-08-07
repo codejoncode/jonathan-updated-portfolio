@@ -19,3 +19,5 @@ describe("Testing Infrastructure", () => {
     expect(mockFn).toHaveBeenCalledWith("test");
   });
 });
+
+export {};
