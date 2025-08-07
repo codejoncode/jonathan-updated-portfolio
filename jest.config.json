@@ -16,5 +16,10 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "src/**/*.test.tsx",
+    "src/**/*.test.ts",
+    "src/setupTests.ts"
+  ]
 }
