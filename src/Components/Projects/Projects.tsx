@@ -8,7 +8,6 @@ import { RootState } from "../../types";
 import { ThemeProps } from "../../types";
 import {
   textPrimary,
-  textAccent,
   glassmorphismBorder,
 } from "../../Helpers/Colors/colors";
 import { projectUtils } from "../../Helpers/Functions/projectUtils";

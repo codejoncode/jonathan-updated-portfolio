@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Image, Menu } from "semantic-ui-react";
 import {
-  textPrimary,
   textAccent,
   glassmorphismBorder,
 } from "../../Helpers/Colors/colors";
