@@ -76,7 +76,7 @@ const NavBar: React.FC = () => {
 
       <Menu.Item
         as={Link}
-        to="/lectures"
+        to="/legal-research"
         className="nav-link"
         style={{
           color: textAccent,
@@ -84,33 +84,7 @@ const NavBar: React.FC = () => {
           fontWeight: "500",
         }}
       >
-        Lectures
-      </Menu.Item>
-
-      <Menu.Item
-        as={Link}
-        to="/blog"
-        className="nav-link"
-        style={{
-          color: textAccent,
-          transition: "all 0.3s ease",
-          fontWeight: "500",
-        }}
-      >
-        Blog
-      </Menu.Item>
-
-      <Menu.Item
-        as={Link}
-        to="/contact"
-        className="nav-link"
-        style={{
-          color: textAccent,
-          transition: "all 0.3s ease",
-          fontWeight: "500",
-        }}
-      >
-        Contact
+        Legal Research
       </Menu.Item>
     </Menu>
   );

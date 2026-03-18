@@ -21,7 +21,7 @@ import {
   getAllCategories,
 } from "../assets/data/projectGalleryData";
 import {
-  groupProjectsByCategory,
+  //groupProjectsByCategory,
   groupProjectsByDifficulty,
   getProjectStatistics,
   getMostUsedTechnologies,
@@ -43,7 +43,7 @@ const ProjectGallery: React.FC = () => {
   const categories = getAllCategories();
   const statistics = getProjectStatistics();
   const topTechnologies = getMostUsedTechnologies(8);
-  const groupedByCategory = groupProjectsByCategory();
+  //const groupedByCategory = groupProjectsByCategory();
   const groupedByDifficulty = groupProjectsByDifficulty();
 
   useEffect(() => {

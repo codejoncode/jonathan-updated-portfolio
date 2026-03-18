@@ -465,7 +465,7 @@ const ResumePage: React.FC = () => {
           >
             {/* Resume Content Based on Active Selection */}
             {activeResume === "fullstack" && <FullStackResumeContent />}
-            {activeResume === "general" && <GeneralResumeContent />}
+            {activeResume === "general" && <MasterResumeContent />}
             {activeResume === "projects" && <ProjectsResumeContent />}
           </div>
         </div>
@@ -627,637 +627,596 @@ const ResumePage: React.FC = () => {
 const FullStackResumeContent: React.FC = () => (
   <div
     style={{
-      display: "grid",
-      gridTemplateColumns: "1fr 2fr",
-      gap: "40px",
       fontFamily: "Arial, sans-serif",
-      fontSize: "14px",
-      lineHeight: "1.4",
+      fontSize: "13px",
+      lineHeight: "1.5",
+      color: "#2c3e50",
     }}
   >
-    <div>
-      <h1 style={{ fontSize: "24px", marginBottom: "8px", color: "#2c3e50" }}>
-        Jonathan J. Holloway
+    {/* Header */}
+    <div style={{ textAlign: "center", marginBottom: "20px" }}>
+      <h1
+        style={{
+          fontSize: "24px",
+          margin: "0 0 5px 0",
+          fontWeight: "bold",
+          color: "#2c3e50",
+        }}
+      >
+        Jonathan Holloway
       </h1>
-      <h2 style={{ fontSize: "18px", marginBottom: "20px", color: "#34495e" }}>
-        Full Stack Engineer
+      <h2
+        style={{
+          fontSize: "16px",
+          margin: "0 0 15px 0",
+          color: "#34495e",
+          fontWeight: "600",
+        }}
+      >
+        Full Stack Software Engineer
       </h2>
-
-      <div style={{ marginTop: "30px" }}>
-        <h3
-          style={{
-            fontSize: "16px",
-            fontWeight: "bold",
-            color: "#2c3e50",
-            marginBottom: "10px",
-            borderBottom: "2px solid #3498db",
-            paddingBottom: "5px",
-          }}
-        >
-          CONTACT
-        </h3>
-        <p style={{ margin: "5px 0" }}>
-          <strong>LinkedIn:</strong>{" "}
-          <a
-            href="https://www.linkedin.com/in/jonathanjholloway/"
-            style={{ color: "#3498db" }}
-          >
-            linkedin.com/in/jonathanjholloway
-          </a>
-        </p>
-        <p style={{ margin: "5px 0" }}>
-          <strong>GitHub:</strong>{" "}
-          <a href="https://github.com/codejoncode" style={{ color: "#3498db" }}>
-            github.com/codejoncode
-          </a>
-        </p>
-        <p style={{ margin: "5px 0" }}>
-          <strong>Email:</strong> jonathanjamelholloway@gmail.com
-        </p>
-        <p style={{ margin: "5px 0" }}>
-          <strong>Location:</strong> Crown Point, IN, USA
-        </p>
-      </div>
-
-      <div style={{ marginTop: "30px" }}>
-        <h3
-          style={{
-            fontSize: "16px",
-            fontWeight: "bold",
-            color: "#2c3e50",
-            marginBottom: "10px",
-            borderBottom: "2px solid #3498db",
-            paddingBottom: "5px",
-          }}
-        >
-          TECHNICAL SKILLS
-        </h3>
-        <div style={{ marginBottom: "15px" }}>
-          <p style={{ margin: "8px 0", fontWeight: "bold" }}>Frontend:</p>
-          <ul style={{ margin: "0", paddingLeft: "20px" }}>
-            <li>JavaScript/TypeScript</li>
-            <li>React.js/Redux</li>
-            <li>HTML5/CSS3/LESS/SASS</li>
-            <li>Semantic UI React</li>
-            <li>Responsive Design</li>
-            <li>Bootstrap</li>
-          </ul>
-        </div>
-        <div style={{ marginBottom: "15px" }}>
-          <p style={{ margin: "8px 0", fontWeight: "bold" }}>Backend:</p>
-          <ul style={{ margin: "0", paddingLeft: "20px" }}>
-            <li>Node.js/Express.js</li>
-            <li>Python/Django</li>
-            <li>REST API Development</li>
-            <li>GraphQL</li>
-            <li>Authentication (JWT, OAuth)</li>
-          </ul>
-        </div>
-        <div style={{ marginBottom: "15px" }}>
-          <p style={{ margin: "8px 0", fontWeight: "bold" }}>
-            Database & Cloud:
-          </p>
-          <ul style={{ margin: "0", paddingLeft: "20px" }}>
-            <li>PostgreSQL/MySQL</li>
-            <li>MongoDB</li>
-            <li>Firebase/Firestore</li>
-            <li>Cloud Functions</li>
-            <li>AWS Services</li>
-          </ul>
-        </div>
-        <div>
-          <p style={{ margin: "8px 0", fontWeight: "bold" }}>
-            Tools & Methods:
-          </p>
-          <ul style={{ margin: "0", paddingLeft: "20px" }}>
-            <li>Git/GitHub</li>
-            <li>AI/ML Integration</li>
-            <li>Agile/Scrum</li>
-            <li>Code Reviews</li>
-            <li>Testing (Jest, Cypress)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div style={{ marginTop: "30px" }}>
-        <h3
-          style={{
-            fontSize: "16px",
-            fontWeight: "bold",
-            color: "#2c3e50",
-            marginBottom: "10px",
-            borderBottom: "2px solid #3498db",
-            paddingBottom: "5px",
-          }}
-        >
-          EDUCATION
-        </h3>
-        <h5 style={{ margin: "8px 0", fontWeight: "bold" }}>
-          Lambda School Academy of Computer Science
-        </h5>
-        <p style={{ margin: "5px 0", color: "#7f8c8d" }}>
-          Full Stack Web Development Certificate - 2019
-        </p>
-        <ul style={{ margin: "8px 0", paddingLeft: "20px" }}>
-          <li>9-month intensive program</li>
-          <li>Computer Science fundamentals</li>
-          <li>Full-stack web development</li>
-          <li>Data structures & algorithms</li>
-        </ul>
-      </div>
-    </div>
-
-    <div>
-      <h3
-        style={{
-          fontSize: "16px",
-          fontWeight: "bold",
-          color: "#2c3e50",
-          marginBottom: "15px",
-          borderBottom: "2px solid #3498db",
-          paddingBottom: "5px",
-        }}
-      >
-        PROFESSIONAL EXPERIENCE
-      </h3>
-
-      <div style={{ marginBottom: "30px" }}>
-        <h4 style={{ fontSize: "15px", margin: "0 0 5px 0", color: "#2c3e50" }}>
-          Project Manager – Larkist (https://larkist.com)
-        </h4>
-        <p style={{ margin: "5px 0", color: "#7f8c8d", fontStyle: "italic" }}>
-          AI-Powered Full Stack Application | 2024 - Present
-        </p>
-        <ul style={{ margin: "10px 0", paddingLeft: "20px" }}>
-          <li>
-            Spearheaded end-to-end development of AI-powered platform for online
-            bullying detection
-          </li>
-          <li>
-            Led cross-functional team of 5 software engineers and 3 data
-            scientists
-          </li>
-          <li>
-            Directed product strategy, UX design alignment, and AI model
-            integration
-          </li>
-          <li>
-            Implemented real-time sentiment analysis and content filtering
-            systems
-          </li>
-          <li>
-            Managed project timelines, deliverables, and stakeholder
-            communications
-          </li>
-          <li>
-            Architected scalable backend infrastructure supporting 10,000+
-            concurrent users
-          </li>
-        </ul>
-      </div>
-
-      <div style={{ marginBottom: "30px" }}>
-        <h4 style={{ fontSize: "15px", margin: "0 0 5px 0", color: "#2c3e50" }}>
-          Lambda School - Teaching Assistant & Team Lead
-        </h4>
-        <p style={{ margin: "5px 0", color: "#7f8c8d", fontStyle: "italic" }}>
-          April 2019 - Present
-        </p>
-        <ul style={{ margin: "10px 0", paddingLeft: "20px" }}>
-          <li>
-            Provide instruction to groups of up to 17 students on computer
-            science fundamentals
-          </li>
-          <li>
-            Conduct comprehensive code reviews and assist with debugging complex
-            problems
-          </li>
-          <li>
-            Lead development teams of up to 8 developers through full-stack
-            projects
-          </li>
-          <li>
-            Mentor students on data structures, algorithms, and software
-            engineering best practices
-          </li>
-          <li>
-            Facilitate daily standups, sprint planning, and retrospective
-            meetings
-          </li>
-          <li>
-            Guide students through full application deployment and CI/CD
-            processes
-          </li>
-        </ul>
-      </div>
-
-      <h3
-        style={{
-          fontSize: "16px",
-          fontWeight: "bold",
-          color: "#2c3e50",
-          marginBottom: "15px",
-          borderBottom: "2px solid #3498db",
-          paddingBottom: "5px",
-        }}
-      >
-        KEY PROJECTS
-      </h3>
-
-      <div style={{ marginBottom: "25px" }}>
-        <h4 style={{ fontSize: "15px", margin: "0 0 5px 0", color: "#2c3e50" }}>
-          Events App - Social Platform
-        </h4>
-        <p style={{ margin: "5px 0", color: "#7f8c8d" }}>
-          Live: https://the-events-app.firebaseapp.com/
-        </p>
-        <p style={{ margin: "5px 0", fontSize: "13px" }}>
-          <strong>Tech Stack:</strong> React, Redux, Firebase, Google Maps API
-        </p>
-        <ul style={{ margin: "8px 0", paddingLeft: "20px", fontSize: "13px" }}>
-          <li>Social media application for event creation and management</li>
-          <li>Google Maps/Places integration for location services</li>
-          <li>Serverless backend with Cloud Functions</li>
-          <li>Real-time updates and user authentication</li>
-        </ul>
-      </div>
-
-      <div style={{ marginBottom: "25px" }}>
-        <h4 style={{ fontSize: "15px", margin: "0 0 5px 0", color: "#2c3e50" }}>
-          Note Taking App - Full Stack CRUD
-        </h4>
-        <p style={{ margin: "5px 0", color: "#7f8c8d" }}>
-          Live: https://notetakingapp.netlify.com/
-        </p>
-        <p style={{ margin: "5px 0", fontSize: "13px" }}>
-          <strong>Tech Stack:</strong> React, Redux, Node, Express, PostgreSQL
-        </p>
-        <ul style={{ margin: "8px 0", paddingLeft: "20px", fontSize: "13px" }}>
-          <li>Full-stack application with complete CRUD functionality</li>
-          <li>RESTful API backend with PostgreSQL database</li>
-          <li>Responsive React/Redux frontend with user authentication</li>
-        </ul>
-      </div>
-
-      <h3
-        style={{
-          fontSize: "16px",
-          fontWeight: "bold",
-          color: "#2c3e50",
-          marginBottom: "15px",
-          borderBottom: "2px solid #3498db",
-          paddingBottom: "5px",
-        }}
-      >
-        ACHIEVEMENTS
-      </h3>
-      <ul style={{ margin: "10px 0", paddingLeft: "20px" }}>
-        <li>
-          Successfully launched Larkist.com - live AI-powered platform
-          addressing cyberbullying
-        </li>
-        <li>
-          Led cross-functional teams to deliver complex full-stack applications
-        </li>
-        <li>Mentored 50+ aspiring developers through Lambda School program</li>
-        <li>
-          Built and deployed multiple full-stack applications with modern tech
-          stacks
-        </li>
-        <li>
-          Expertise in integrating AI/ML capabilities into web applications
-        </li>
-      </ul>
-    </div>
-  </div>
-);
-
-const GeneralResumeContent: React.FC = () => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "1fr 2fr",
-      gap: "40px",
-      fontFamily: "Arial, sans-serif",
-      fontSize: "14px",
-      lineHeight: "1.4",
-    }}
-  >
-    <div>
-      <h1 style={{ fontSize: "24px", marginBottom: "8px", color: "#2c3e50" }}>
-        Jonathan J. Holloway
-      </h1>
-      <h2 style={{ fontSize: "18px", marginBottom: "20px", color: "#34495e" }}>
-        Technology Professional & Project Leader
-      </h2>
-
-      <div style={{ marginTop: "30px" }}>
-        <h3
-          style={{
-            fontSize: "16px",
-            fontWeight: "bold",
-            color: "#2c3e50",
-            marginBottom: "10px",
-            borderBottom: "2px solid #3498db",
-            paddingBottom: "5px",
-          }}
-        >
-          CONTACT
-        </h3>
-        <p style={{ margin: "5px 0" }}>
-          <strong>LinkedIn:</strong>{" "}
-          <a
-            href="https://www.linkedin.com/in/jonathanjholloway/"
-            style={{ color: "#3498db" }}
-          >
-            linkedin.com/in/jonathanjholloway
-          </a>
-        </p>
-        <p style={{ margin: "5px 0" }}>
-          <strong>Email:</strong> jonathanjamelholloway@gmail.com
-        </p>
-        <p style={{ margin: "5px 0" }}>
-          <strong>Location:</strong> Crown Point, IN, USA
-        </p>
-      </div>
-
-      <div style={{ marginTop: "30px" }}>
-        <h3
-          style={{
-            fontSize: "16px",
-            fontWeight: "bold",
-            color: "#2c3e50",
-            marginBottom: "10px",
-            borderBottom: "2px solid #3498db",
-            paddingBottom: "5px",
-          }}
-        >
-          CORE COMPETENCIES
-        </h3>
-        <div style={{ marginBottom: "15px" }}>
-          <p style={{ margin: "8px 0", fontWeight: "bold" }}>
-            Leadership & Management:
-          </p>
-          <ul style={{ margin: "0", paddingLeft: "20px" }}>
-            <li>Project Management</li>
-            <li>Team Leadership (8+ professionals)</li>
-            <li>Cross-functional Collaboration</li>
-            <li>Strategic Planning</li>
-            <li>Stakeholder Communication</li>
-          </ul>
-        </div>
-        <div style={{ marginBottom: "15px" }}>
-          <p style={{ margin: "8px 0", fontWeight: "bold" }}>
-            Technical Expertise:
-          </p>
-          <ul style={{ margin: "0", paddingLeft: "20px" }}>
-            <li>Software Development</li>
-            <li>System Architecture</li>
-            <li>AI/ML Integration</li>
-            <li>Database Management</li>
-            <li>Cloud Technologies</li>
-          </ul>
-        </div>
-        <div>
-          <p style={{ margin: "8px 0", fontWeight: "bold" }}>
-            Professional Skills:
-          </p>
-          <ul style={{ margin: "0", paddingLeft: "20px" }}>
-            <li>Technical Training & Mentorship</li>
-            <li>Problem Solving</li>
-            <li>Process Improvement</li>
-            <li>Quality Assurance</li>
-            <li>Documentation</li>
-          </ul>
-        </div>
-      </div>
-
-      <div style={{ marginTop: "30px" }}>
-        <h3
-          style={{
-            fontSize: "16px",
-            fontWeight: "bold",
-            color: "#2c3e50",
-            marginBottom: "10px",
-            borderBottom: "2px solid #3498db",
-            paddingBottom: "5px",
-          }}
-        >
-          EDUCATION
-        </h3>
-        <h5 style={{ margin: "8px 0", fontWeight: "bold" }}>
-          Lambda School Academy of Computer Science
-        </h5>
-        <p style={{ margin: "5px 0", color: "#7f8c8d" }}>
-          Full Stack Web Development Certificate - 2019
-        </p>
-        <ul style={{ margin: "8px 0", paddingLeft: "20px" }}>
-          <li>Intensive 9-month program</li>
-          <li>Software engineering principles</li>
-          <li>Team collaboration methodologies</li>
-          <li>Leadership development</li>
-        </ul>
-      </div>
-
-      <div style={{ marginTop: "30px" }}>
-        <h3
-          style={{
-            fontSize: "16px",
-            fontWeight: "bold",
-            color: "#2c3e50",
-            marginBottom: "10px",
-            borderBottom: "2px solid #3498db",
-            paddingBottom: "5px",
-          }}
-        >
-          CERTIFICATIONS
-        </h3>
-        <ul style={{ margin: "0", paddingLeft: "20px" }}>
-          <li>Full Stack Web Development</li>
-          <li>Agile Project Management</li>
-          <li>Team Leadership</li>
-        </ul>
-      </div>
-    </div>
-
-    <div>
-      <h3
-        style={{
-          fontSize: "16px",
-          fontWeight: "bold",
-          color: "#2c3e50",
-          marginBottom: "15px",
-          borderBottom: "2px solid #3498db",
-          paddingBottom: "5px",
-        }}
-      >
-        PROFESSIONAL EXPERIENCE
-      </h3>
-
-      <div style={{ marginBottom: "30px" }}>
-        <h4 style={{ fontSize: "15px", margin: "0 0 5px 0", color: "#2c3e50" }}>
-          Project Manager – Larkist
-        </h4>
-        <p style={{ margin: "5px 0", color: "#7f8c8d", fontStyle: "italic" }}>
-          Technology Leadership Role | 2024 - Present
-        </p>
-        <ul style={{ margin: "10px 0", paddingLeft: "20px" }}>
-          <li>
-            Led end-to-end product development for AI-powered platform
-            addressing cyberbullying
-          </li>
-          <li>
-            Managed cross-functional team of 8 professionals including engineers
-            and data scientists
-          </li>
-          <li>
-            Directed product strategy and user experience design alignment
-          </li>
-          <li>
-            Coordinated project timelines, deliverables, and budget management
-          </li>
-          <li>
-            Facilitated stakeholder communications and project status reporting
-          </li>
-          <li>
-            Implemented agile methodologies to improve team productivity by 40%
-          </li>
-          <li>
-            Successfully launched live platform serving thousands of users
-          </li>
-        </ul>
-      </div>
-
-      <div style={{ marginBottom: "30px" }}>
-        <h4 style={{ fontSize: "15px", margin: "0 0 5px 0", color: "#2c3e50" }}>
-          Teaching Assistant & Team Lead - Lambda School
-        </h4>
-        <p style={{ margin: "5px 0", color: "#7f8c8d", fontStyle: "italic" }}>
-          April 2019 - Present
-        </p>
-        <ul style={{ margin: "10px 0", paddingLeft: "20px" }}>
-          <li>
-            Provide technical instruction and mentorship to groups of up to 17
-            students
-          </li>
-          <li>
-            Lead development teams through complex project completion cycles
-          </li>
-          <li>
-            Facilitate meetings, coordinate deliverables, and manage team
-            dynamics
-          </li>
-          <li>Conduct performance reviews and provide constructive feedback</li>
-          <li>Develop training materials and curriculum improvements</li>
-          <li>
-            Mentor team members on professional development and career
-            advancement
-          </li>
-        </ul>
-      </div>
-
-      <h3
-        style={{
-          fontSize: "16px",
-          fontWeight: "bold",
-          color: "#2c3e50",
-          marginBottom: "15px",
-          borderBottom: "2px solid #3498db",
-          paddingBottom: "5px",
-        }}
-      >
-        KEY ACHIEVEMENTS
-      </h3>
-      <ul style={{ margin: "10px 0", paddingLeft: "20px" }}>
-        <li>
-          <strong>Product Launch:</strong> Successfully launched Larkist.com -
-          live AI-powered platform
-        </li>
-        <li>
-          <strong>Team Leadership:</strong> Led cross-functional teams to
-          deliver complex projects on time and budget
-        </li>
-        <li>
-          <strong>Mentorship Impact:</strong> Mentored 50+ aspiring
-          professionals through career development
-        </li>
-        <li>
-          <strong>Process Improvement:</strong> Implemented agile practices
-          resulting in 40% productivity increase
-        </li>
-        <li>
-          <strong>Innovation:</strong> Integrated cutting-edge AI/ML
-          technologies into production systems
-        </li>
-        <li>
-          <strong>Stakeholder Management:</strong> Maintained strong
-          relationships across technical and business teams
-        </li>
-      </ul>
-
-      <h3
-        style={{
-          fontSize: "16px",
-          fontWeight: "bold",
-          color: "#2c3e50",
-          marginBottom: "15px",
-          borderBottom: "2px solid #3498db",
-          paddingBottom: "5px",
-        }}
-      >
-        LEADERSHIP PHILOSOPHY
-      </h3>
-      <p style={{ margin: "10px 0", fontSize: "13px", lineHeight: "1.5" }}>
-        I believe in empowering teams through clear communication, collaborative
-        decision-making, and continuous learning. My approach combines technical
-        expertise with people-focused leadership to drive innovation and deliver
-        exceptional results. I thrive in environments that challenge
-        conventional thinking and require creative problem-solving.
+      <p style={{ margin: "5px 0", fontSize: "12px" }}>
+        Crown Point, IN | (708) 465-2230 | mrjonathanjholloway@gmail.com
       </p>
+      <p style={{ margin: "5px 0", fontSize: "12px" }}>
+        <a
+          href="https://linkedin.com/in/jonathanjholloway"
+          style={{ color: "#3498db" }}
+        >
+          linkedin.com/in/jonathanjholloway
+        </a>
+        {" | "}
+        <a href="https://github.com/codejoncode" style={{ color: "#3498db" }}>
+          github.com/codejoncode
+        </a>
+        {" | "}
+        <a
+          href="https://jonathanhollowayportfolio.netlify.app"
+          style={{ color: "#3498db" }}
+        >
+          Portfolio
+        </a>
+      </p>
+    </div>
 
+    {/* Professional Summary */}
+    <div style={{ marginBottom: "16px" }}>
       <h3
         style={{
-          fontSize: "16px",
+          fontSize: "13px",
           fontWeight: "bold",
           color: "#2c3e50",
-          marginBottom: "15px",
+          margin: "0 0 8px 0",
           borderBottom: "2px solid #3498db",
-          paddingBottom: "5px",
+          paddingBottom: "4px",
         }}
       >
-        AREAS OF IMPACT
+        PROFESSIONAL SUMMARY
+      </h3>
+      <p style={{ margin: "0", fontSize: "12px", lineHeight: "1.6" }}>
+        Full-Stack Software Engineer with 4+ years of production experience
+        building scalable applications across Fortune 500 clients in financial
+        services, technology, agriculture, and food industries. Expert in
+        designing secure APIs, responsive React frontends, and enterprise
+        backend systems. Certified Scrum Master with proven ability to deliver
+        complex features while maintaining code quality, accessibility, and
+        security standards.
+      </p>
+    </div>
+
+    {/* Technical Expertise */}
+    <div style={{ marginBottom: "16px" }}>
+      <h3
+        style={{
+          fontSize: "13px",
+          fontWeight: "bold",
+          color: "#2c3e50",
+          margin: "0 0 8px 0",
+          borderBottom: "2px solid #3498db",
+          paddingBottom: "4px",
+        }}
+      >
+        TECHNICAL EXPERTISE
+      </h3>
+      <div style={{ fontSize: "12px" }}>
+        <p style={{ margin: "4px 0" }}>
+          <strong>Frontend:</strong> React.js, Next.js, Angular, Redux, HTML5,
+          CSS3, LESS/SASS, Semantic UI, Responsive Design, TypeScript
+        </p>
+        <p style={{ margin: "4px 0" }}>
+          <strong>Backend:</strong> Node.js/Express, C#/ASP.NET, .NET Core,
+          Python/Django, RESTful APIs, GraphQL, Authentication (JWT/OAuth)
+        </p>
+        <p style={{ margin: "4px 0" }}>
+          <strong>Database & Infrastructure:</strong> PostgreSQL, MongoDB, MS
+          SQL Server, ElasticSearch, Azure, Docker, Git, CI/CD Pipelines
+        </p>
+        <p style={{ margin: "4px 0" }}>
+          <strong>Testing & Quality:</strong> Jest, TDD, ADA/WCAG
+          Accessibility, Agile/Scrum Methodologies, Code Reviews
+        </p>
+        <p style={{ margin: "4px 0" }}>
+          <strong>Integrations & Tools:</strong> MuleSoft ESB, Headless CMS,
+          Third-party API Integration, Microsoft Office Suite
+        </p>
+      </div>
+    </div>
+
+    {/* Featured Projects */}
+    <div style={{ marginBottom: "16px" }}>
+      <h3
+        style={{
+          fontSize: "13px",
+          fontWeight: "bold",
+          color: "#2c3e50",
+          margin: "0 0 8px 0",
+          borderBottom: "2px solid #3498db",
+          paddingBottom: "4px",
+        }}
+      >
+        FEATURED PROJECTS
+      </h3>
+      <div style={{ marginBottom: "10px" }}>
+        <h4
+          style={{ fontSize: "12px", fontWeight: "bold", margin: "0 0 3px 0" }}
+        >
+          Fleek Session Events App
+        </h4>
+        <ul style={{ margin: "3px 0", paddingLeft: "20px", fontSize: "12px" }}>
+          <li>
+            Social platform for event creation and management built with React
+            and Redux
+          </li>
+          <li>
+            Implemented real-time notifications and secure authentication
+          </li>
+          <li>Integrated Google Maps API for location-based services</li>
+          <li>Live production deployment with Firebase backend</li>
+        </ul>
+      </div>
+      <div>
+        <h4
+          style={{ fontSize: "12px", fontWeight: "bold", margin: "0 0 3px 0" }}
+        >
+          Crypto Currency Dashboard
+        </h4>
+        <ul style={{ margin: "3px 0", paddingLeft: "20px", fontSize: "12px" }}>
+          <li>Interactive cryptocurrency tracking application</li>
+          <li>
+            Built responsive UI with React Context API and Styled Components
+          </li>
+          <li>Developed Node.js/Express backend with real-time API integration</li>
+          <li>Deployed on Netlify with live price feeds and market analysis</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Core Competencies */}
+    <div style={{ marginBottom: "16px" }}>
+      <h3
+        style={{
+          fontSize: "13px",
+          fontWeight: "bold",
+          color: "#2c3e50",
+          margin: "0 0 8px 0",
+          borderBottom: "2px solid #3498db",
+          paddingBottom: "4px",
+        }}
+      >
+        CORE COMPETENCIES
       </h3>
       <div
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: "20px",
-          fontSize: "13px",
+          gap: "15px",
+          fontSize: "12px",
         }}
       >
-        <div>
-          <p style={{ fontWeight: "bold", margin: "5px 0" }}>
-            Project Management:
-          </p>
-          <ul style={{ margin: "0", paddingLeft: "15px" }}>
-            <li>Agile/Scrum methodologies</li>
-            <li>Resource allocation</li>
-            <li>Risk management</li>
-            <li>Timeline optimization</li>
-          </ul>
-        </div>
-        <div>
-          <p style={{ fontWeight: "bold", margin: "5px 0" }}>
-            Technology Integration:
-          </p>
-          <ul style={{ margin: "0", paddingLeft: "15px" }}>
-            <li>AI/ML implementation</li>
-            <li>System architecture</li>
-            <li>Performance optimization</li>
-            <li>Scalability planning</li>
-          </ul>
-        </div>
+        <ul style={{ margin: "0", paddingLeft: "20px" }}>
+          <li>Modern Web Development (React, Next.js, TypeScript)</li>
+          <li>Full-Stack Application Architecture</li>
+          <li>GraphQL & RESTful API Design</li>
+          <li>Enterprise Security & Authentication</li>
+        </ul>
+        <ul style={{ margin: "0", paddingLeft: "20px" }}>
+          <li>Database Design & Optimization</li>
+          <li>Cloud Deployment & CI/CD</li>
+          <li>Team Leadership & Mentorship</li>
+          <li>Agile Sprint Management</li>
+        </ul>
       </div>
+    </div>
+
+    {/* Professional Highlights */}
+    <div style={{ marginBottom: "16px" }}>
+      <h3
+        style={{
+          fontSize: "13px",
+          fontWeight: "bold",
+          color: "#2c3e50",
+          margin: "0 0 8px 0",
+          borderBottom: "2px solid #3498db",
+          paddingBottom: "4px",
+        }}
+      >
+        PROFESSIONAL HIGHLIGHTS
+      </h3>
+      <ul style={{ margin: "0", paddingLeft: "20px", fontSize: "12px" }}>
+        <li>4+ years of Fortune 500 consulting experience</li>
+        <li>40% improvement in code coverage through Jest testing framework</li>
+        <li>
+          Architected CMS-driven solutions enabling non-technical teams to
+          manage content
+        </li>
+        <li>
+          Designed secure data flows protecting against thousands of breach
+          attempts
+        </li>
+        <li>Led cross-functional teams and mentored junior developers</li>
+        <li>ADA/WCAG compliant accessibility implementations</li>
+      </ul>
+    </div>
+
+    {/* Education & Certifications */}
+    <div>
+      <h3
+        style={{
+          fontSize: "13px",
+          fontWeight: "bold",
+          color: "#2c3e50",
+          margin: "0 0 8px 0",
+          borderBottom: "2px solid #3498db",
+          paddingBottom: "4px",
+        }}
+      >
+        EDUCATION & CERTIFICATIONS
+      </h3>
+      <div style={{ fontSize: "12px" }}>
+        <p style={{ margin: "5px 0" }}>
+          <strong>Certified Full Stack Developer</strong> | Bloom Institute of
+          Technology | 2019
+        </p>
+        <p style={{ margin: "5px 0", paddingLeft: "10px", fontSize: "11px" }}>
+          9-month intensive program covering computer science fundamentals and
+          modern web development
+        </p>
+        <p style={{ margin: "5px 0" }}>
+          <strong>Certified Scrum Master</strong> | Scrum Alliance | 2020
+        </p>
+        <p style={{ margin: "5px 0" }}>
+          <strong>Additional Training:</strong>
+        </p>
+        <ul style={{ margin: "3px 0", paddingLeft: "20px" }}>
+          <li>Creative Problem-Solving Certificate | University of Minnesota | 2014</li>
+          <li>Business Administration Coursework | University of Dubuque | 2003–2006</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+const MasterResumeContent: React.FC = () => (
+  <div
+    style={{
+      fontFamily: "Arial, sans-serif",
+      fontSize: "13px",
+      lineHeight: "1.5",
+      color: "#2c3e50",
+    }}
+  >
+    {/* Header */}
+    <div style={{ textAlign: "center", marginBottom: "20px" }}>
+      <h1 style={{ fontSize: "22px", margin: "0 0 5px 0" }}>
+        Jonathan Jamel Holloway
+      </h1>
+      <p style={{ margin: "5px 0", fontSize: "12px" }}>
+        Crown Point, IN | (708) 465-2230 | mrjonathanjholloway@gmail.com
+      </p>
+      <p style={{ margin: "5px 0", fontSize: "12px" }}>
+        <a href="https://linkedin.com/in/jonathanjholloway" style={{ color: "#3498db" }}>
+          linkedin.com/in/jonathanjholloway
+        </a>
+        {" | "}
+        <a href="https://github.com/codejoncode" style={{ color: "#3498db" }}>
+          github.com/codejoncode
+        </a>
+        {" | "}
+        <a href="https://jonathanhollowayportfolio.netlify.app" style={{ color: "#3498db" }}>
+          Portfolio
+        </a>
+      </p>
+      <p style={{ margin: "5px 0", fontSize: "12px" }}>
+        ⚖{" "}
+        <a href="https://www.jonathanhollowayportfolio.netlify.app/legal-research" style={{ color: "#3498db" }}>
+          Legal Research Portfolio
+        </a>
+      </p>
+    </div>
+
+    {/* Professional Summary */}
+    <div style={{ marginBottom: "18px" }}>
+      <h3
+        style={{
+          fontSize: "14px",
+          fontWeight: "bold",
+          color: "#2c3e50",
+          margin: "0 0 8px 0",
+          borderBottom: "2px solid #3498db",
+          paddingBottom: "4px",
+        }}
+      >
+        PROFESSIONAL SUMMARY
+      </h3>
+      <p style={{ margin: "0", lineHeight: "1.6", fontSize: "12px" }}>
+        Full-stack software engineer with 4+ years of production consulting
+        experience across Fortune 500 clients in financial services, technology,
+        agriculture, and food industries — and a versatile professional
+        background spanning healthcare insurance, customer service, quality
+        assurance, and hospitality. Skilled across C#, TypeScript, JavaScript,
+        Python, React, Angular, Node.js, ASP.NET, .NET Core, SQL Server,
+        MongoDB, Docker, Azure, and CI/CD. Licensed Life, Accident & Health
+        Insurance Professional (Indiana License #3968155 — Active). Certified
+        Scrum Master. U.S.-based remote-first professional since 2019.
+      </p>
+    </div>
+
+    {/* Technical Skills */}
+    <div style={{ marginBottom: "18px" }}>
+      <h3
+        style={{
+          fontSize: "14px",
+          fontWeight: "bold",
+          color: "#2c3e50",
+          margin: "0 0 8px 0",
+          borderBottom: "2px solid #3498db",
+          paddingBottom: "4px",
+        }}
+      >
+        TECHNICAL SKILLS
+      </h3>
+      <div style={{ fontSize: "12px" }}>
+        <p style={{ margin: "5px 0" }}>
+          <strong>Languages:</strong> JavaScript, TypeScript, Python, C#, HTML5,
+          CSS3, SQL, PHP, Ruby
+        </p>
+        <p style={{ margin: "5px 0" }}>
+          <strong>Frameworks & Libraries:</strong> React, Next.js, Angular,
+          Node.js/Express, ASP.NET, .NET Core, Django, WPF
+        </p>
+        <p style={{ margin: "5px 0" }}>
+          <strong>APIs & Integration:</strong> REST, GraphQL, MuleSoft ESB,
+          Headless CMS, third-party API integration
+        </p>
+        <p style={{ margin: "5px 0" }}>
+          <strong>Data & Infrastructure:</strong> PostgreSQL, MongoDB, MS SQL,
+          ElasticSearch, Azure, Docker, Git, CI/CD
+        </p>
+        <p style={{ margin: "5px 0" }}>
+          <strong>Testing & Quality:</strong> Jest, TDD, ADA/WCAG Accessibility,
+          QA Monitoring, 90%+ calibration accuracy
+        </p>
+        <p style={{ margin: "5px 0" }}>
+          <strong>Insurance & Healthcare:</strong> L/A&H Licensed (IN #3968155),
+          Claims Processing, HIPAA, Member Benefits, CRM
+        </p>
+        <p style={{ margin: "5px 0" }}>
+          <strong>Methods & Tools:</strong> Agile/Scrum (Certified Scrum Master),
+          Project Management, Microsoft Office, 67 WPM
+        </p>
+      </div>
+    </div>
+
+    {/* Professional Experience */}
+    <div style={{ marginBottom: "18px" }}>
+      <h3
+        style={{
+          fontSize: "14px",
+          fontWeight: "bold",
+          color: "#2c3e50",
+          margin: "0 0 8px 0",
+          borderBottom: "2px solid #3498db",
+          paddingBottom: "4px",
+        }}
+      >
+        PROFESSIONAL EXPERIENCE
+      </h3>
+
+      <div style={{ marginBottom: "12px" }}>
+        <h4 style={{ margin: "0 0 2px 0", fontSize: "13px", fontWeight: "bold" }}>
+          Full Stack Software Engineer Consultant | Perficient, Inc.
+        </h4>
+        <p style={{ margin: "2px 0", fontSize: "12px", fontStyle: "italic", color: "#7f8c8d" }}>
+          2019 – 2023 | Remote · Fortune 500 Clients: Financial Services,
+          Technology, Agriculture & Food
+        </p>
+        <ul style={{ margin: "5px 0", paddingLeft: "20px", fontSize: "12px" }}>
+          <li>
+            Contributed to design, development, testing, and maintenance of
+            production applications for Fortune 500 clients
+          </li>
+          <li>
+            Designed and built GraphQL and RESTful API services with secure data
+            flows between backend services and React frontends
+          </li>
+          <li>
+            Architected headless CMS integrations with React; built reusable
+            component libraries
+          </li>
+          <li>
+            Engineered C#/ASP.NET backend services and MS SQL data layers
+            supporting enterprise workflow applications
+          </li>
+          <li>
+            Built WPF-based frontend components for a vending machine management
+            application
+          </li>
+          <li>
+            Led development of pandemic-response leave management system
+            achieving 100% operational continuity
+          </li>
+          <li>
+            Optimized ElasticSearch filtering algorithms and integrated
+            third-party APIs
+          </li>
+          <li>
+            Developed Jest testing framework increasing code coverage by 40%;
+            engineered security mechanisms
+          </li>
+          <li>
+            Managed Git-based version control; deployed and maintained
+            applications on Azure using CI/CD pipelines
+          </li>
+          <li>
+            Led daily standups, sprint planning, and backlog management as
+            Certified Scrum Master
+          </li>
+        </ul>
+      </div>
+
+      <div style={{ marginBottom: "12px" }}>
+        <h4 style={{ margin: "0 0 2px 0", fontSize: "13px", fontWeight: "bold" }}>
+          Technical Teaching Assistant / Labs Team Lead | Bloom Institute of
+          Technology
+        </h4>
+        <p style={{ margin: "2px 0", fontSize: "12px", fontStyle: "italic", color: "#7f8c8d" }}>
+          2018 – 2019 | Remote
+        </p>
+        <ul style={{ margin: "5px 0", paddingLeft: "20px", fontSize: "12px" }}>
+          <li>
+            Guided distributed cohort through full-stack curriculum achieving
+            100% graduation rate
+          </li>
+          <li>
+            Coordinated project timelines and managed Agile team activities
+          </li>
+        </ul>
+      </div>
+
+      <div style={{ marginBottom: "12px" }}>
+        <h4 style={{ margin: "0 0 2px 0", fontSize: "13px", fontWeight: "bold" }}>
+          Quality Assurance Analyst — Healthcare Insurance | Teleperformance
+        </h4>
+        <p style={{ margin: "2px 0", fontSize: "12px", fontStyle: "italic", color: "#7f8c8d" }}>
+          Dec 2015 – Feb 2018 | Healthcare Customer Service, Claims & QA
+          Compliance
+        </p>
+        <ul style={{ margin: "5px 0", paddingLeft: "20px", fontSize: "12px" }}>
+          <li>
+            Managed inbound healthcare insurance inquiries for members: medical
+            benefits, claims status, coverage questions
+          </li>
+          <li>
+            Processed and researched insurance claims; coordinated with providers
+            to resolve discrepancies
+          </li>
+          <li>
+            Explained complex policy benefits in clear, accessible language to
+            members
+          </li>
+          <li>
+            Resolved escalated member concerns including coverage disputes and
+            billing issues
+          </li>
+          <li>
+            Monitored CSR calls against quality guidelines and HIPAA/regulatory
+            compliance standards
+          </li>
+          <li>
+            Provided real-time coaching and structured feedback to improve call
+            quality
+          </li>
+          <li>
+            Created Microsoft Office-based reporting tools to track quality
+            metrics
+          </li>
+          <li>
+            Recognized as Employee of the Month (3 nominations, 1 award) and
+            Blue Diamond Award recipient
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Education & Certifications */}
+    <div style={{ marginBottom: "18px" }}>
+      <h3
+        style={{
+          fontSize: "14px",
+          fontWeight: "bold",
+          color: "#2c3e50",
+          margin: "0 0 8px 0",
+          borderBottom: "2px solid #3498db",
+          paddingBottom: "4px",
+        }}
+      >
+        EDUCATION & CERTIFICATIONS
+      </h3>
+      <ul style={{ margin: "0", paddingLeft: "20px", fontSize: "12px" }}>
+        <li>
+          <strong>Indiana Life, Accident & Health Insurance License</strong> ·
+          License #3968155 — Active
+        </li>
+        <li>
+          <strong>Certified Scrum Master</strong> · Scrum Alliance (2020)
+        </li>
+        <li>
+          <strong>Certified Full Stack Developer</strong> · Bloom Institute of
+          Technology (2019)
+        </li>
+        <li>
+          <strong>Creative Problem-Solving Certificate</strong> · University of
+          Minnesota (2014)
+        </li>
+        <li>
+          <strong>Business Administration (Coursework)</strong> · University of
+          Dubuque (2003–2006)
+        </li>
+        <li>
+          <strong>High School Diploma</strong> · Thornton Fractional South High
+          School (2003)
+        </li>
+      </ul>
+    </div>
+
+    {/* Key Achievements */}
+    <div>
+      <h3
+        style={{
+          fontSize: "14px",
+          fontWeight: "bold",
+          color: "#2c3e50",
+          margin: "0 0 8px 0",
+          borderBottom: "2px solid #3498db",
+          paddingBottom: "4px",
+        }}
+      >
+        KEY ACHIEVEMENTS
+      </h3>
+      <ul style={{ margin: "0", paddingLeft: "20px", fontSize: "12px" }}>
+        <li>
+          4+ years enterprise consulting — Fortune 500 clients across financial
+          services, technology, agriculture, and food industries
+        </li>
+        <li>100% graduation rate as Teaching Assistant at Bloom Institute</li>
+        <li>40% increase in code coverage through Jest testing framework</li>
+        <li>
+          3+ years healthcare insurance experience: claims processing, QA
+          monitoring, and member advocacy
+        </li>
+        <li>
+          90%+ quality calibration accuracy; Employee of the Month and Blue
+          Diamond Award recipient
+        </li>
+        <li>
+          Active Indiana Life, Accident & Health Insurance License — obtained
+          post-layoff
+        </li>
+        <li>
+          Filed four pro se court documents in Indiana dissolution proceeding
+          within statutory deadlines
+        </li>
+      </ul>
     </div>
   </div>
 );

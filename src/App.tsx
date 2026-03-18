@@ -22,6 +22,8 @@ import SignIn from "./Components/Admin/SignIn";
 import DisplayBlogs from "./Components/Admin/DisplayBlogs";
 import BlogPage from "./Components/Admin/BlogPage";
 import Blog from "./Components/Blog";
+import Proposals from "./Components/Proposals/Proposals";
+import LegalResearchPortfolio from "./Components/LegalResearchPortfolio";
 
 // TypeScript interfaces
 interface AppState {
@@ -72,6 +74,8 @@ const App: React.FC = () => {
         <Route path="/resume" element={<ResumePage />} />
         <Route path="/lectures" element={<Lectures />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/proposals" element={<Proposals />} />
+        <Route path="/legal-research" element={<LegalResearchPortfolio />} />
         <Route
           path="/contact"
           element={

@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal Research Portfolio — Jane Doe</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --parchment: #f5f0e8;
+    --cream: #faf7f2;
+    --gold: #b8963e;
+    --gold-light: #d4b06a;
+    --rust: #8b3a2a;
+    --slate: #3d4a5c;
+    --rule: #c8b99a;
+    --sidebar-w: 260px;
+  }
+ 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+  body {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    background: var(--cream);
+    color: var(--ink);
+    display: flex;
+    min-height: 100vh;
+  }
+ 
+  /* ── SIDEBAR ── */
+  nav {
+    width: var(--sidebar-w);
+    min-height: 100vh;
+    background: var(--ink);
+    color: var(--parchment);
+    position: fixed;
+    top: 0; left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    z-index: 100;
+    border-right: 3px solid var(--gold);
+  }
+ 
+  .nav-header {
+    padding: 32px 24px 24px;
+    border-bottom: 1px solid rgba(184,150,62,0.35);
+  }
+ 
+  .nav-header .monogram {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+ 
+  .nav-header .name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rule);
+    margin-top: 8px;
+  }
+ 
+  .nav-header .title {
+    font-size: 11px;
+    color: var(--gold-light);
+    margin-top: 4px;
+    font-style: italic;
+  }
+ 
+  nav ul {
+    list-style: none;
+    padding: 20px 0;
+    flex: 1;
+  }
+ 
+  nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 24px;
+    text-decoration: none;
+    color: rgba(245,240,232,0.7);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    border-left: 2px solid transparent;
+  }
+ 
+  nav ul li a:hover, nav ul li a.active {
+    color: var(--gold-light);
+    border-left-color: var(--gold);
+    background: rgba(184,150,62,0.08);
+  }
+ 
+  nav ul li a .num {
+    font-size: 9px;
+    color: var(--gold);
+    min-width: 18px;
+    font-weight: 500;
+  }
+ 
+  .nav-footer {
+    padding: 20px 24px;
+    border-top: 1px solid rgba(184,150,62,0.2);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: rgba(245,240,232,0.35);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.8;
+  }
+ 
+  /* ── MAIN ── */
+  main {
+    margin-left: var(--sidebar-w);
+    flex: 1;
+    padding: 0;
+  }
+ 
+  /* ── HERO ── */
+  .hero {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 72px 64px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 400px; height: 400px;
+    border: 1px solid rgba(184,150,62,0.12);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 300px; height: 300px;
+    border: 1px solid rgba(184,150,62,0.08);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+ 
+  .hero-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+ 
+  .hero-label::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+ 
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 900;
+    line-height: 1.1;
+    max-width: 640px;
+    margin-bottom: 24px;
+  }
+ 
+  .hero h1 em {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+ 
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 36px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(184,150,62,0.25);
+  }
+ 
+  .hero-meta-item .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+ 
+  .hero-meta-item .value {
+    font-size: 13px;
+    color: var(--parchment);
+    margin-top: 4px;
+  }
+ 
+  /* ── SECTIONS ── */
+  section {
+    padding: 64px 64px;
+    border-bottom: 1px solid var(--rule);
+  }
+ 
+  section:last-child { border-bottom: none; }
+ 
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+ 
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    background: rgba(184,150,62,0.1);
+    border: 1px solid rgba(184,150,62,0.3);
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+ 
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 8px;
+    flex: 1;
+  }
+ 
+  /* ── PETITION BOX ── */
+  .petition-box {
+    background: white;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--slate);
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+  }
+ 
+  .petition-box .stamp {
+    position: absolute;
+    top: 16px; right: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--rust);
+    text-transform: uppercase;
+    border: 1px solid var(--rust);
+    padding: 2px 8px;
+    opacity: 0.7;
+    transform: rotate(2deg);
+  }
+ 
+  .petition-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--slate);
+    margin-bottom: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+ 
+  .petition-box p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #3a3a3a;
+  }
+ 
+  .petition-claims {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+ 
+  .claim-item {
+    background: #f8f5f0;
+    border: 1px solid var(--rule);
+    padding: 16px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+ 
+  .claim-item .icon {
+    font-size: 18px;
+    min-width: 24px;
+    margin-top: 1px;
+  }
+ 
+  .claim-item .text {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+ 
+  .claim-item .text strong {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 3px;
+  }
+ 
+  /* ── Q&A CARDS ── */
+  .qa-card {
+    background: white;
+    border: 1px solid var(--rule);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+ 
+  .qa-question {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 16px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    cursor: pointer;
+  }
+ 
+  .qa-q-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    background: rgba(184,150,62,0.15);
+    padding: 2px 8px;
+    border: 1px solid rgba(184,150,62,0.3);
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+ 
+  .qa-question p {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--parchment);
+    line-height: 1.5;
+    flex: 1;
+  }
+ 
+  .qa-answer {
+    padding: 24px;
+    border-top: 2px solid var(--gold);
+    display: flex;
+    gap: 16px;
+  }
+ 
+  .qa-a-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    background: rgba(184,150,62,0.08);
+    padding: 2px 8px;
+    border: 1px solid rgba(184,150,62,0.25);
+    white-space: nowrap;
+    height: fit-content;
+    margin-top: 2px;
+  }
+ 
+  .qa-answer-content {
+    flex: 1;
+  }
+ 
+  .qa-answer-content p {
+    font-size: 13.5px;
+    line-height: 1.85;
+    color: #2a2a2a;
+    margin-bottom: 10px;
+  }
+ 
+  .qa-answer-content p:last-child { margin-bottom: 0; }
+ 
+  .finding {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-top: 8px;
+  }
+ 
+  .finding.favorable { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+  .finding.unfavorable { background: #fce4ec; color: #c62828; border: 1px solid #f48fb1; }
+  .finding.neutral { background: #e3f2fd; color: #1565c0; border: 1px solid #90caf9; }
+ 
+  /* ── STATUTE CARDS ── */
+  .statute-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+ 
+  .statute-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--gold);
+    padding: 24px;
+  }
+ 
+  .statute-code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+ 
+  .statute-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+ 
+  .statute-text {
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: #444;
+  }
+ 
+  .statute-relevance {
+    margin-top: 14px;
+    padding: 10px 12px;
+    background: rgba(184,150,62,0.07);
+    border-left: 2px solid var(--gold);
+    font-size: 12px;
+    font-style: italic;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+ 
+  /* ── CASE LAW ── */
+  .case-grid {
+    display: grid;
+    gap: 16px;
+  }
+ 
+  .case-card {
+    background: white;
+    border: 1px solid var(--rule);
+    padding: 22px 28px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+ 
+  .case-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: white;
+    background: var(--slate);
+    padding: 4px 10px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    height: fit-content;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+  .case-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+    font-style: italic;
+  }
+ 
+  .case-cite {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+ 
+  .case-holding {
+    font-size: 13px;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 10px;
+  }
+ 
+  .case-application {
+    font-size: 12px;
+    color: var(--slate);
+    background: #f0f4f8;
+    padding: 8px 12px;
+    border-left: 2px solid var(--slate);
+    font-style: italic;
+    line-height: 1.65;
+  }
+ 
+  /* ── ANALYSIS TABLE ── */
+  .analysis-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+ 
+  .analysis-table th {
+    background: var(--ink);
+    color: var(--gold);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+    border: 1px solid rgba(184,150,62,0.3);
+  }
+ 
+  .analysis-table td {
+    padding: 14px 16px;
+    border: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.7;
+  }
+ 
+  .analysis-table tr:nth-child(even) td {
+    background: rgba(200,185,154,0.08);
+  }
+ 
+  .analysis-table .issue { font-weight: 700; color: var(--slate); }
+  .analysis-table .fact { color: #333; font-size: 12.5px; }
+  .analysis-table .law { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--gold); }
+  .analysis-table .outcome { font-size: 12px; }
+ 
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+ 
+  .badge-green { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+  .badge-red { background: #fce4ec; color: #b71c1c; border: 1px solid #f8bbd0; }
+  .badge-blue { background: #e3f2fd; color: #0d47a1; border: 1px solid #bbdefb; }
+ 
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+ 
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 14px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), rgba(184,150,62,0.2));
+  }
+ 
+  .tl-item {
+    position: relative;
+    margin-bottom: 28px;
+    padding-left: 20px;
+  }
+ 
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 8px;
+    width: 10px; height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+ 
+  .tl-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+ 
+  .tl-event {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--ink);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+ 
+  .tl-detail {
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #555;
+    font-style: italic;
+  }
+ 
+  /* ── FINAL DOCS ── */
+  .doc-block {
+    background: white;
+    border: 1px solid var(--rule);
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+ 
+  .doc-header {
+    background: var(--slate);
+    color: white;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+ 
+  .doc-header .doc-icon { font-size: 20px; }
+ 
+  .doc-header .doc-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #cdd5e0;
+  }
+ 
+  .doc-header .doc-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    margin-top: 2px;
+  }
+ 
+  .doc-body {
+    padding: 32px 36px;
+  }
+ 
+  .doc-caption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-align: center;
+    color: var(--slate);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--ink);
+  }
+ 
+  .doc-body p {
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 14px;
+    color: #2a2a2a;
+  }
+ 
+  .doc-body .heading {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+    margin: 24px 0 14px;
+  }
+ 
+  .doc-body ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 14px;
+  }
+ 
+  .doc-body ul li {
+    font-size: 13px;
+    line-height: 1.8;
+    padding: 6px 0 6px 22px;
+    position: relative;
+    color: #2a2a2a;
+    border-bottom: 1px dotted var(--rule);
+  }
+ 
+  .doc-body ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 11px;
+  }
+ 
+  .doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    margin-bottom: 20px;
+  }
+ 
+  .doc-table th {
+    background: var(--ink);
+    color: var(--parchment);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+  }
+ 
+  .doc-table td {
+    padding: 10px 14px;
+    border: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.65;
+  }
+ 
+  .doc-table tr:nth-child(even) td { background: #faf7f2; }
+ 
+  .doc-sig {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+ 
+  .doc-sig .sig-line {
+    border-bottom: 1px solid var(--ink);
+    width: 240px;
+    padding-bottom: 4px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink);
+  }
+ 
+  .doc-sig .sig-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--slate);
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+ 
+  .doc-sig .sig-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--slate);
+    text-align: right;
+    line-height: 1.8;
+  }
+ 
+  /* ── SKILLS BADGES ── */
+  .skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+  }
+ 
+  .skill-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: rgba(184,150,62,0.1);
+    color: var(--gold);
+    border: 1px solid rgba(184,150,62,0.35);
+    padding: 4px 12px;
+    border-radius: 2px;
+  }
+ 
+  /* ── CALLOUT ── */
+  .callout {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 28px 32px;
+    border-left: 4px solid var(--gold);
+    margin: 28px 0;
+  }
+ 
+  .callout p {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    line-height: 1.75;
+    font-style: italic;
+    margin: 0;
+  }
+ 
+  .callout .callout-source {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+  }
+ 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { width: 200px; }
+    main { margin-left: 200px; }
+    section { padding: 40px 32px; }
+    .hero { padding: 48px 32px 40px; }
+    .petition-claims { grid-template-columns: 1fr; }
+    .statute-grid { grid-template-columns: 1fr; }
+    .case-card { grid-template-columns: 1fr; }
+    .case-tag { writing-mode: horizontal-tb; transform: none; width: fit-content; }
+  }
+ 
+  @media (max-width: 640px) {
+    nav { display: none; }
+    main { margin-left: 0; }
+    section { padding: 32px 20px; }
+    .hero { padding: 36px 20px 32px; }
+  }
+ 
+  /* Print */
+  @media print {
+    nav { display: none; }
+    main { margin-left: 0; }
+    section { padding: 32px 48px; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+ 
+<!-- SIDEBAR -->
+<nav>
+  <div class="nav-header">
+    <div class="monogram">JD</div>
+    <div class="name">Jane Doe</div>
+    <div class="title">Legal Research &amp; Analysis</div>
+  </div>
+  <ul>
+    <li><a href="#petition"><span class="num">01</span> The Petition</a></li>
+    <li><a href="#questions"><span class="num">02</span> Key Questions</a></li>
+    <li><a href="#statutes"><span class="num">03</span> Statutes</a></li>
+    <li><a href="#caselaw"><span class="num">04</span> Case Law</a></li>
+    <li><a href="#analysis"><span class="num">05</span> Analysis</a></li>
+    <li><a href="#timeline"><span class="num">06</span> Timeline</a></li>
+    <li><a href="#output"><span class="num">07</span> Final Output</a></li>
+  </ul>
+  <div class="nav-footer">
+    All names &amp; identifying<br>
+    information anonymized<br>
+    for portfolio use only.<br><br>
+    Cause No.<br>
+    00D00‑0000‑DC‑000000
+  </div>
+</nav>
+ 
+<!-- MAIN -->
+<main>
+ 
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">Legal Research Portfolio</div>
+    <h1>Dissolution of Marriage:<br><em>Pro Se Response to<br>Petition for Provisional Orders</em></h1>
+    <p style="font-size:14px;line-height:1.8;color:rgba(245,240,232,0.7);max-width:560px;margin-top:20px;">
+      A complete demonstration of independent legal research, issue spotting, statutory analysis, case law application, and professional document drafting — conducted without attorney representation.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><div class="label">Jurisdiction</div><div class="value">Sample County Superior Court, State of Indiana</div></div>
+      <div class="hero-meta-item"><div class="label">Role</div><div class="value">Respondent / Father — Pro Se</div></div>
+      <div class="hero-meta-item"><div class="label">Filed</div><div class="value">Within Statutory Deadline</div></div>
+      <div class="hero-meta-item"><div class="label">Documents Produced</div><div class="value">4 (Appearance, Enlargement, Affidavit, Personal Statement)</div></div>
+    </div>
+  </div>
+ 
+  <!-- SECTION 1: THE PETITION -->
+  <section id="petition">
+    <div class="section-header">
+      <span class="section-num">§ 01</span>
+      <h2 class="section-title">The Petition — Problem Statement</h2>
+    </div>
+ 
+    <div class="petition-box">
+      <div class="stamp">Anonymized</div>
+      <h3>Caption</h3>
+      <p>
+        <strong>State of Indiana — Sample County Superior Court 1</strong><br>
+        In Re the Marriage of: <strong>Jane Doe</strong> (Petitioner / Mother) and <strong>John Doe</strong> (Respondent / Father)<br>
+        Cause No. 00D00‑0000‑DC‑000000
+      </p>
+    </div>
+ 
+    <p style="font-size:14px;line-height:1.85;margin-bottom:24px;color:#333;">
+      The Petitioner filed for dissolution of marriage and simultaneously sought a series of provisional orders through her retained legal counsel. The petition was filed on <strong>[Date A]</strong> but service was not executed until <strong>[Date B]</strong> — a delay of fourteen days. The Respondent, appearing pro se and without legal training, received the following demands:
+    </p>
+ 
+    <div class="petition-claims">
+      <div class="claim-item">
+        <div class="icon">🏠</div>
+        <div class="text"><strong>Custody</strong>Sole physical and legal custody of all four minor children (Child A, age 16; Child B, age 14; Child C, age 11; Child D, age 6).</div>
+      </div>
+      <div class="claim-item">
+        <div class="icon">🔑</div>
+        <div class="text"><strong>Marital Home</strong>Exclusive possession of the marital home — the only home the children have ever known, qualified for and primarily funded by the Respondent.</div>
+      </div>
+      <div class="claim-item">
+        <div class="icon">🚙</div>
+        <div class="text"><strong>Marital Vehicle</strong>Exclusive possession of the marital SUV, despite the vehicle being titled solely in the Respondent's name with Respondent's down payment.</div>
+      </div>
+      <div class="claim-item">
+        <div class="icon">💵</div>
+        <div class="text"><strong>Financial Relief</strong>Child support payments and payment of marital expenses from the Respondent, who is involuntarily unemployed.</div>
+      </div>
+      <div class="claim-item">
+        <div class="icon">⚠️</div>
+        <div class="text"><strong>Disclosure Gap</strong>The petition discloses only assets held in the Respondent's name. Petitioner's retirement accounts, estate interest, and personal financial accounts are entirely omitted.</div>
+      </div>
+      <div class="claim-item">
+        <div class="icon">❓</div>
+        <div class="text"><strong>No Childcare Plan</strong>The petition requests sole custody and removal of the Respondent from the home but proposes no plan for who will supervise four children during the Petitioner's 50–60+ hour work weeks and late-night shifts.</div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- SECTION 2: KEY QUESTIONS -->
+  <section id="questions">
+    <div class="section-header">
+      <span class="section-num">§ 02</span>
+      <h2 class="section-title">Key Legal Questions Identified</h2>
+    </div>
+ 
+    <p style="font-size:14px;line-height:1.85;margin-bottom:32px;color:#444;">
+      Upon receiving the petition, the Respondent independently identified the following dispositive legal questions — without attorney assistance — by reading Indiana statutes and applying them to the documented facts.
+    </p>
+ 
+    <!-- Q1 -->
+    <div class="qa-card">
+      <div class="qa-question">
+        <span class="qa-q-label">Q 01</span>
+        <p>Are there undisclosed marital assets, and does their omission violate Indiana's one-pot rule?</p>
+      </div>
+      <div class="qa-answer">
+        <span class="qa-a-label">A 01</span>
+        <div class="qa-answer-content">
+          <p>Indiana Code § 31-15-7-4 requires all assets of both parties to be disclosed, regardless of whose name they are held in. The Respondent, appearing pro se, independently located this rule, understood it, and disclosed every account — including an $82 forex account, two zero-balance accounts, and a possibly dormant former-employer retirement plan.</p>
+          <p>The Petitioner, represented by licensed counsel, disclosed only the marital home and vehicle — the two assets she seeks to claim. Her retirement account through a prior employer, accumulated during the marriage; any employer benefits through her current managerial employment; and her interest in a deceased parent's estate are wholly absent from the petition. Pre-filing text communications establish that Petitioner was on written notice that Respondent had identified the retirement accounts as marital assets before the petition was filed.</p>
+          <span class="finding unfavorable">⚠ Petitioner: Selective Disclosure</span>
+          <span class="finding favorable" style="margin-left:8px;">✓ Respondent: Full Transparency</span>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Q2 -->
+    <div class="qa-card">
+      <div class="qa-question">
+        <span class="qa-q-label">Q 02</span>
+        <p>Does the Petitioner's work schedule support a viable sole-custody claim?</p>
+      </div>
+      <div class="qa-answer">
+        <span class="qa-a-label">A 02</span>
+        <div class="qa-answer-content">
+          <p>Indiana Code § 31-17-2-8 directs courts to consider, among other factors, the interaction and interrelationship of the child with each parent, and the mental and physical health of all individuals involved. Courts have consistently emphasized the primacy of the "primary caregiver" factor.</p>
+          <p>The Petitioner works 50–60+ hours per week as a General Manager, including late nights (past midnight) and early mornings, with emergency call-ins on days off. On the day service was executed, the Petitioner was called in to work and did not return until after midnight; the following night she did not return until after 3:00 a.m. The Respondent was present with all four children on both occasions. The Petitioner's schedule, by her own pattern of conduct, has made the Respondent the de facto primary caregiver for approximately eight years.</p>
+          <span class="finding unfavorable">⚠ Sole Custody Claim: Unsupported by Schedule</span>
+          <span class="finding favorable" style="margin-left:8px;">✓ Respondent: Established Caregiver</span>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Q3 -->
+    <div class="qa-card">
+      <div class="qa-question">
+        <span class="qa-q-label">Q 03</span>
+        <p>Does the petition propose any childcare plan, and is sole custody viable without one?</p>
+      </div>
+      <div class="qa-answer">
+        <span class="qa-a-label">A 03</span>
+        <div class="qa-answer-content">
+          <p>A petition for sole custody implicitly represents that the petitioning parent can provide primary daily care. The Petitioner's petition does not identify who will supervise four children — including a six-year-old in kindergarten — during late-night shifts, overnight absences, or emergency call-ins. No childcare plan, no alternative caregiver, no structured arrangement for morning school-bus supervision or after-school care is proposed.</p>
+          <p>On the day of service, the Petitioner delegated a six-year-old's school pickup to a fourteen-year-old sibling rather than contacting the Respondent, who was home and available. This is direct evidentiary documentation of the gap that would become permanent if the Respondent were removed from the home. A licensed attorney has a professional obligation to evaluate whether a sole-custody claim is supportable before filing it.</p>
+          <span class="finding unfavorable">⚠ Fatal Defect: No Childcare Plan</span>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Q4 -->
+    <div class="qa-card">
+      <div class="qa-question">
+        <span class="qa-q-label">Q 04</span>
+        <p>What is the documented caregiving history, and over what period does it span?</p>
+      </div>
+      <div class="qa-answer">
+        <span class="qa-a-label">A 04</span>
+        <div class="qa-answer-content">
+          <p>Since approximately 2018 — when the Petitioner's promotion brought 50–60+ hour work weeks — the Respondent has served as the children's principal caregiver. This period spans roughly eight years, representing more than half the lives of three of the four children and the entirety of the youngest child's life. Documented responsibilities include: primary morning supervision and school-bus duty; after-school supervision every day; daily meal preparation; academic tutoring (preventing one child from being held back twice); a structured summer educational program of the Respondent's own design; health-routine monitoring; physical engagement and discipline; and exclusive overnight caregiving during a prior period when the Petitioner worked evening and overnight shifts five days per week. The Petitioner's own conduct confirms her trust — she raised no objection to the Respondent taking children on out-of-state overnight trips without her.</p>
+          <span class="finding favorable">✓ Respondent: Eight-Year Documented Caregiver Role</span>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Q5 -->
+    <div class="qa-card">
+      <div class="qa-question">
+        <span class="qa-q-label">Q 05</span>
+        <p>Are there contradictions between the petition and the Petitioner's prior written statements?</p>
+      </div>
+      <div class="qa-answer">
+        <span class="qa-a-label">A 05</span>
+        <div class="qa-answer-content">
+          <p>The petition requests child support and payment of marital expenses from the Respondent. The Respondent holds a text message from the Petitioner — made before the petition was filed — in which she states she never sought those payments. A petition filed under a party's name and signature must reflect that party's actual instructions. A sworn contradiction between the petition's relief-requested section and the Petitioner's prior written statement raises a direct credibility issue that this Court should resolve before entering any financial orders.</p>
+          <span class="finding unfavorable">⚠ Petitioner: Credibility Issue — Text vs. Petition</span>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Q6 -->
+    <div class="qa-card">
+      <div class="qa-question">
+        <span class="qa-q-label">Q 06</span>
+        <p>Does either party have alternative housing, and how does that affect exclusive possession?</p>
+      </div>
+      <div class="qa-answer">
+        <span class="qa-a-label">A 06</span>
+        <div class="qa-answer-content">
+          <p>Indiana Code § 31-15-4-8 authorizes provisional exclusive possession orders. Courts weigh, among other factors, which party has alternative housing options and the hardship an order would impose. The Respondent has no alternative housing — the marital home is the only home the children have ever known, and granting exclusive possession to the Petitioner would render the Respondent immediately homeless. The Petitioner, by contrast, has on multiple occasions spent entire nights at her mother's residence in a neighboring state, demonstrating an established alternative shelter option. Awarding exclusive possession to a party with demonstrated access to alternative accommodations over a party who would be rendered homeless is a factor courts may weigh toward denying exclusive possession at the provisional stage.</p>
+          <span class="finding favorable">✓ Respondent: No Alternative Housing — Favors Denial of Exclusive Possession Order</span>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Q7 -->
+    <div class="qa-card">
+      <div class="qa-question">
+        <span class="qa-q-label">Q 07</span>
+        <p>Does involuntary unemployment disqualify a parent from primary custody or bar child support deferral?</p>
+      </div>
+      <div class="qa-answer">
+        <span class="qa-a-label">A 07</span>
+        <div class="qa-answer-content">
+          <p>Indiana Code § 31-17-2-8 does not list employment status as a disqualifying custody factor. Courts focus on stability, structured routines, and the quality of the parent-child relationship. Indiana has consistently held that unemployment, when involuntary and combined with active income-seeking efforts, does not defeat a custody claim and may actually reflect greater daily availability to the children. The Respondent's layoff was involuntary; he has since obtained a professional license specifically to generate income and has applied for hundreds of positions, all documented. Ordering child support from an involuntarily unemployed parent who is actively seeking work would impair his ability to pursue employment — a result inconsistent with the children's long-term best interest.</p>
+          <span class="finding neutral">→ Involuntary Unemployment: Not Disqualifying Under Indiana Law</span>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Q8 -->
+    <div class="qa-card">
+      <div class="qa-question">
+        <span class="qa-q-label">Q 08</span>
+        <p>Are there life insurance policies, and does the Petitioner have the ability to alter or cancel them?</p>
+      </div>
+      <div class="qa-answer">
+        <span class="qa-a-label">A 08</span>
+        <div class="qa-answer-content">
+          <p>The Respondent identified a specific risk: if the Petitioner holds a life insurance policy on the Respondent's life — as spouses commonly do — she could cancel it, change the beneficiary, or borrow against it during the pendency of the proceedings. Indiana provisional order statutes authorize preservation-of-assets orders. The Respondent requested that the Court order disclosure of any such policies and prohibit alteration of beneficiary designations pending final hearing, ensuring any death benefit would inure to the minor children rather than to the Petitioner. This is a protective rather than offensive request — the Respondent holds no comparable policy and sought no reciprocal benefit for himself.</p>
+          <span class="finding neutral">→ Protective Relief Requested — Children's Interest</span>
+        </div>
+      </div>
+    </div>
+ 
+  </section>
+ 
+  <!-- SECTION 3: STATUTES -->
+  <section id="statutes">
+    <div class="section-header">
+      <span class="section-num">§ 03</span>
+      <h2 class="section-title">Statutory Framework</h2>
+    </div>
+ 
+    <div class="statute-grid">
+ 
+      <div class="statute-card">
+        <div class="statute-code">Ind. Code § 31-15-7-4</div>
+        <div class="statute-name">The One-Pot Rule — Marital Asset Disclosure</div>
+        <div class="statute-text">Directs courts to divide the marital estate, which consists of all assets of either party, regardless of when acquired, how titled, or whose name they are held in. Both parties are obligated to disclose all assets to the Court.</div>
+        <div class="statute-relevance">Applied here: Petitioner omitted retirement accounts, estate interest, and personal financial accounts. Respondent disclosed all accounts including those with zero or nominal value.</div>
+      </div>
+ 
+      <div class="statute-card">
+        <div class="statute-code">Ind. Code § 31-15-7-5</div>
+        <div class="statute-name">Just and Reasonable Division — Unequal Division Authority</div>
+        <div class="statute-text">Provides that the presumption of equal division may be rebutted. Courts may award an unequal division where one party has contributed disproportionately to the marital estate, where assets have been dissipated or concealed, or where economic justice requires deviation from equal shares.</div>
+        <div class="statute-relevance">Applied here: Years of uncompensated mortgage payments on property held in spouse's name; proceeds of sale never received; capital improvements funded by Respondent.</div>
+      </div>
+ 
+      <div class="statute-card">
+        <div class="statute-code">Ind. Code § 31-17-2-8</div>
+        <div class="statute-name">Best Interests of the Child — Custody Factors</div>
+        <div class="statute-text">Lists factors for custody determination including: age and sex of the child; wishes of the child; interaction with each parent; child's adjustment to home, school, and community; mental and physical health of all parties; evidence of domestic violence; and the ability of each party to foster a positive relationship between the children and the other parent.</div>
+        <div class="statute-relevance">Applied here: Respondent is the documented primary caregiver; Petitioner's schedule leaves children without parental supervision; Petitioner has made threats that she would deny the Respondent access to the children.</div>
+      </div>
+ 
+      <div class="statute-card">
+        <div class="statute-code">Ind. Code § 31-15-4-8</div>
+        <div class="statute-name">Provisional Orders — Scope and Limitations</div>
+        <div class="statute-text">Authorizes courts to enter provisional orders during pendency of dissolution proceedings covering custody, possession of the marital home, support, and use of marital property. Provisional orders are temporary and do not determine final disposition of marital property.</div>
+        <div class="statute-relevance">Applied here: Exclusive possession of the home at provisional stage does not constitute a final property award; Court should defer final disposition until complete financial disclosures are received.</div>
+      </div>
+ 
+      <div class="statute-card">
+        <div class="statute-code">Indiana Trial Rule 6(B)</div>
+        <div class="statute-name">Enlargement of Time — Automatic Extension</div>
+        <div class="statute-text">Provides for an automatic one-time enlargement of time to respond to a petition when notice is filed on or before the original response deadline. The extension is not discretionary when properly invoked.</div>
+        <div class="statute-relevance">Applied here: Respondent independently located this rule, invoked it on time, and extended his response deadline by 30 days — allowing adequate time to conduct research and draft responsive documents.</div>
+      </div>
+ 
+      <div class="statute-card">
+        <div class="statute-code">Ind. Code § 31-17-2-8(7)</div>
+        <div class="statute-name">Domestic Violence &amp; Coercive Control — Custody Factor</div>
+        <div class="statute-text">Directs courts to consider evidence of domestic or family violence in the custody determination. Courts have extended this to include coercive control behaviors, including threats to deny a parent access to children as leverage.</div>
+        <div class="statute-relevance">Applied here: Petitioner threatened on at least two occasions that Respondent would "never see" the children if he pursued separation — documented coercive control raising direct relevance to best-interests analysis.</div>
+      </div>
+ 
+    </div>
+ 
+    <div class="skills-row" style="margin-top:28px;">
+      <span class="skill-badge">Statutory Research</span>
+      <span class="skill-badge">Indiana Family Code</span>
+      <span class="skill-badge">Marital Property Law</span>
+      <span class="skill-badge">Provisional Orders</span>
+      <span class="skill-badge">Best Interest Standard</span>
+      <span class="skill-badge">Trial Rules</span>
+      <span class="skill-badge">Disclosure Requirements</span>
+    </div>
+  </section>
+ 
+  <!-- SECTION 4: CASE LAW -->
+  <section id="caselaw">
+    <div class="section-header">
+      <span class="section-num">§ 04</span>
+      <h2 class="section-title">Case Law Research</h2>
+    </div>
+ 
+    <div class="case-grid">
+ 
+      <div class="case-card">
+        <div class="case-tag">Marital Assets</div>
+        <div>
+          <div class="case-name">Aurey v. Aurey</div>
+          <div class="case-cite">Indiana Court of Appeals — Marital Estate / One-Pot Doctrine</div>
+          <div class="case-holding">Indiana's one-pot rule includes all assets of either spouse regardless of when acquired, how titled, or whether separately held. Inherited assets that entered the marital estate are subject to division. Courts have broad discretion to make unequal awards where one party has concealed assets or received a disproportionate benefit during the marriage.</div>
+          <div class="case-application">Applied to Petitioner's omitted retirement accounts and estate interest. Even if originally separate property, assets used during the marriage or improved by marital contributions enter the marital pot.</div>
+        </div>
+      </div>
+ 
+      <div class="case-card">
+        <div class="case-tag">Custody</div>
+        <div>
+          <div class="case-name">Custody — Primary Caregiver Doctrine</div>
+          <div class="case-cite">Indiana Appellate Courts — Ind. Code § 31-17-2-8 Application</div>
+          <div class="case-holding">Indiana courts consistently give substantial weight to the parent who has served as the primary day-to-day caregiver. Employment status alone is not a disqualifying factor; courts focus on the quality and continuity of the parent-child relationship, stability of the home environment, and structured routines. A parent who is home full-time and providing consistent care is not disfavored relative to an employed parent whose schedule limits daily availability.</div>
+          <div class="case-application">Respondent's eight-year documented caregiving role, including exclusive overnight caregiving during prior years, directly satisfies this standard. Petitioner's 50–60 hour weekly schedule and documented overnight absences undermine a sole-custody claim.</div>
+        </div>
+      </div>
+ 
+      <div class="case-card">
+        <div class="case-tag">Disclosure</div>
+        <div>
+          <div class="case-name">Asset Concealment — Equitable Remedy</div>
+          <div class="case-cite">Indiana Appellate Courts — Dissipation / Concealment Doctrine</div>
+          <div class="case-holding">Where a party conceals assets or fails to make complete disclosure, Indiana courts have authority to: (1) draw an adverse inference against the concealing party; (2) charge the concealed or dissipated asset against that party's share of the marital estate; and (3) award the other spouse a greater portion of the disclosed marital estate as an equitable offset. Deliberate concealment by represented counsel is treated with heightened skepticism.</div>
+          <div class="case-application">Petitioner's failure to disclose retirement accounts, despite being on written notice from Respondent that those accounts were identified as marital assets, is directly subject to this doctrine.</div>
+        </div>
+      </div>
+ 
+      <div class="case-card">
+        <div class="case-tag">Provisional</div>
+        <div>
+          <div class="case-name">Exclusive Possession — Hardship Balancing</div>
+          <div class="case-cite">Indiana Courts — Provisional Orders Practice</div>
+          <div class="case-holding">Courts considering exclusive possession at the provisional stage weigh comparative hardship. Granting exclusive possession to a party who would not be rendered homeless, at the expense of a party who has no alternative housing, is a factor courts may weigh toward denial or modification. Provisional possession orders are temporary and do not resolve property rights.</div>
+          <div class="case-application">Petitioner has demonstrated access to alternative shelter; Respondent has none. Exclusive possession would render the Respondent homeless and separate him from the children he has been caring for daily.</div>
+        </div>
+      </div>
+ 
+      <div class="case-card">
+        <div class="case-tag">Credibility</div>
+        <div>
+          <div class="case-name">Petition Inconsistency — Credibility Inference</div>
+          <div class="case-cite">Indiana Courts — Trial Practice / Credibility</div>
+          <div class="case-holding">Where a party's sworn or filed representations contradict their prior written communications, courts are entitled to draw negative credibility inferences. A petition that requests relief the petitioner privately disclaimed in contemporaneous text messages raises questions about whether the petition accurately reflects the party's actual wishes and instructions — and whether its representations should be taken at face value.</div>
+          <div class="case-application">Petitioner's text message stating she "never asked for" child support and marital expense payments directly contradicts the filed petition. Court should require sworn clarification before entering financial orders.</div>
+        </div>
+      </div>
+ 
+      <div class="case-card">
+        <div class="case-tag">Best Interests</div>
+        <div>
+          <div class="case-name">Parental Relationship Facilitation</div>
+          <div class="case-cite">Ind. Code § 31-17-2-8(9) — Court Application</div>
+          <div class="case-holding">A parent's willingness to facilitate and support the children's relationship with the other parent is a statutory custody factor. Documented threats to deny a parent access to children — used as leverage or retaliation — reflect directly on the threatening parent's fitness to hold primary custody and their likely future conduct if awarded it.</div>
+          <div class="case-application">Petitioner threatened on at least two occasions that Respondent would "never see" the children if he pursued separation. This is dispositive on the relationship-facilitation factor.</div>
+        </div>
+      </div>
+ 
+    </div>
+ 
+    <div class="skills-row" style="margin-top:28px;">
+      <span class="skill-badge">Case Law Research</span>
+      <span class="skill-badge">Issue Spotting</span>
+      <span class="skill-badge">Holding Synthesis</span>
+      <span class="skill-badge">Fact Application</span>
+      <span class="skill-badge">Adverse Inference Doctrine</span>
+      <span class="skill-badge">Credibility Analysis</span>
+    </div>
+  </section>
+ 
+  <!-- SECTION 5: ANALYSIS -->
+  <section id="analysis">
+    <div class="section-header">
+      <span class="section-num">§ 05</span>
+      <h2 class="section-title">Analysis &amp; Application — IRAC Structure</h2>
+    </div>
+ 
+    <div class="callout">
+      <p>"The petition as filed asks this Court to remove the solution to a problem the petition itself creates. I have been that solution every day."</p>
+      <span class="callout-source">— Respondent's Personal Statement (anonymized for portfolio)</span>
+    </div>
+ 
+    <table class="analysis-table">
+      <thead>
+        <tr>
+          <th style="width:18%">Issue</th>
+          <th style="width:26%">Relevant Facts</th>
+          <th style="width:18%">Governing Law</th>
+          <th style="width:38%">Analysis &amp; Outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="issue">Undisclosed Marital Assets</td>
+          <td class="fact">Petitioner omitted retirement account (prior employer), potential retirement benefits (current employer), and estate interest. Pre-filing text confirms she was on written notice Respondent claimed those accounts.</td>
+          <td class="law">Ind. Code § 31-15-7-4<br>§ 31-15-7-5<br>Adverse Inference Doctrine</td>
+          <td class="outcome">Petitioner's disclosure is incomplete as a matter of law. Court should order full verified financial disclosure before entering any marital estate orders. Concealment may support adverse inference and offset award. <span class="badge badge-red">Unfavorable to Petitioner</span></td>
+        </tr>
+        <tr>
+          <td class="issue">Sole Custody Viability</td>
+          <td class="fact">Petitioner works 50-60+ hours/week including late nights and overnights. Respondent present with children on both nights following service. Children range from age 6–16, requiring daily supervision and structured care.</td>
+          <td class="law">Ind. Code § 31-17-2-8<br>Primary Caregiver Doctrine</td>
+          <td class="outcome">Petitioner cannot simultaneously work these hours and provide sole daily custody. The schedule itself creates the gap that Respondent currently fills. Sole custody award without a childcare plan would harm the children. <span class="badge badge-red">Unfavorable to Petitioner</span></td>
+        </tr>
+        <tr>
+          <td class="issue">Primary Caregiver Status</td>
+          <td class="fact">8 years of documented daily caregiving: school-bus duty, after-school supervision, meal prep, tutoring, summer educational programs, health monitoring, overnight caregiving during prior employment period.</td>
+          <td class="law">Ind. Code § 31-17-2-8<br>Primary Caregiver Doctrine</td>
+          <td class="outcome">Respondent satisfies the primary caregiver standard by an overwhelming evidentiary margin. Petitioner's own conduct (permitting out-of-state overnight trips without objection) confirms her trust in Respondent's caregiving. <span class="badge badge-green">Favorable to Respondent</span></td>
+        </tr>
+        <tr>
+          <td class="issue">Exclusive Home Possession</td>
+          <td class="fact">Respondent qualified for mortgage, provided down payment, paid majority of costs including 2 years post-layoff. Petitioner has access to alternative housing (mother's residence). Respondent has no alternative.</td>
+          <td class="law">Ind. Code § 31-15-4-8<br>Hardship Balancing</td>
+          <td class="outcome">Comparative hardship favors Respondent. Granting exclusive possession to the party with alternative housing while rendering the primary caregiver homeless is difficult to justify at the provisional stage. <span class="badge badge-green">Favorable to Respondent</span></td>
+        </tr>
+        <tr>
+          <td class="issue">Petition Credibility</td>
+          <td class="fact">Petitioner's text message states she "never asked for" child support or marital expense payments. Her petition requests both. Both cannot be true simultaneously.</td>
+          <td class="law">Credibility Doctrine<br>Sworn Contradiction</td>
+          <td class="outcome">Direct contradiction between filed petition and contemporaneous written statement creates a credibility issue requiring sworn clarification before financial orders are entered. <span class="badge badge-red">Unfavorable to Petitioner</span></td>
+        </tr>
+        <tr>
+          <td class="issue">Child Support — Involuntary Unemployment</td>
+          <td class="fact">Respondent's layoff was involuntary. He obtained a professional license and applied for employment actively. Vehicle withheld by Petitioner has directly impaired income-generating ability.</td>
+          <td class="law">Ind. Code § 31-17-2-8<br>Income Imputation Standards</td>
+          <td class="outcome">Indiana does not impute income during good-faith job search. Vehicle denial by the Petitioner is itself a contributing cause of continued unemployment — equitable relief from support is appropriate at provisional stage. <span class="badge badge-blue">Reserve for Final Hearing</span></td>
+        </tr>
+        <tr>
+          <td class="issue">Parental Relationship Facilitation</td>
+          <td class="fact">Petitioner threatened on at least two occasions that Respondent would "never see" the children if he pursued separation. Petitioner has begun routing child communications through older siblings rather than the available Respondent.</td>
+          <td class="law">Ind. Code § 31-17-2-8(9)<br>Coercive Control Doctrine</td>
+          <td class="outcome">Threats to weaponize child access are the clearest possible evidence that Petitioner will not facilitate the children's relationship with their father if awarded primary custody. This is a statutory best-interests factor. <span class="badge badge-red">Unfavorable to Petitioner</span></td>
+        </tr>
+        <tr>
+          <td class="issue">Children's Academic Welfare</td>
+          <td class="fact">Eldest child's grades failed at maternal grandmother's residence; recovered immediately upon returning to Respondent's supervision. Respondent tutored second child, preventing him from being held back twice. Respondent runs structured annual summer education program.</td>
+          <td class="law">Ind. Code § 31-17-2-8<br>Best Interests — Education</td>
+          <td class="outcome">Documented correlation between Respondent's supervision and academic performance directly supports a primary-custody award. Educational outcomes are a recognized component of the best-interests standard. <span class="badge badge-green">Favorable to Respondent</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+ 
+  <!-- SECTION 6: TIMELINE -->
+  <section id="timeline">
+    <div class="section-header">
+      <span class="section-num">§ 06</span>
+      <h2 class="section-title">Factual &amp; Procedural Timeline</h2>
+    </div>
+ 
+    <p style="font-size:14px;line-height:1.85;margin-bottom:36px;color:#444;">Reconstructed from documentary and testimonial record. All dates anonymized for portfolio use — identified as Date A through Date G.</p>
+ 
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Date A — Filing</div>
+        <div class="tl-event">Petition for Dissolution Filed</div>
+        <div class="tl-detail">Petitioner, represented by retained counsel, files for dissolution. Includes request for sole custody, exclusive possession, child support, and marital expenses. Respondent's retirement accounts are omitted. Service not immediately executed.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Date B — Service</div>
+        <div class="tl-event">Service Executed — 14 Days After Filing</div>
+        <div class="tl-detail">Respondent served at his residence three days before the anniversary of the parties' relationship. Respondent has no vehicle (withheld by Petitioner), depleted savings, no attorney, and fewer than 30 days to respond. On the evening of service, Petitioner is called in to work and does not return until after midnight.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Date B — Same Day</div>
+        <div class="tl-event">Youngest Child's School Pickup Delegated to 14-Year-Old Sibling</div>
+        <div class="tl-detail">Petitioner, unable to retrieve the 6-year-old from school, routes the responsibility through the 14-year-old son — rather than contacting Respondent, who is home and available. When questioned, Petitioner says the older child is "capable of handling it." Respondent documents this as direct evidence of the childcare gap.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Date C</div>
+        <div class="tl-event">Respondent Files Appearance of Respondent</div>
+        <div class="tl-detail">Pro se appearance filed within the original response window. Contact information provided. All future notices, orders, and filings directed to Respondent's address and email.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Date C</div>
+        <div class="tl-event">Notice of Automatic Enlargement of Time Filed</div>
+        <div class="tl-detail">Respondent independently locates Indiana Trial Rule 6(B), invokes his one-time automatic 30-day extension on or before the original deadline, and files proper notice. Response deadline extended by 30 days.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Date D</div>
+        <div class="tl-event">Verified Affidavit in Support of Provisional Orders Filed</div>
+        <div class="tl-detail">Sworn affidavit filed disclosing all Respondent's financial accounts (including $82 forex, two zero-balance accounts, possibly dormant former-employer retirement plan), documenting 8-year caregiving role, identifying Petitioner's omitted assets, and requesting provisional relief on custody, home, vehicle, support, and disclosure.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Date E</div>
+        <div class="tl-event">Personal Statement in Support of Provisional Orders Filed</div>
+        <div class="tl-detail">Narrative statement providing context on the circumstances of service, the financial pattern throughout the marriage, the contradiction between the petition and the Petitioner's prior texts, the childcare gap the petition creates, and the Respondent's good-faith attempts to resolve matters before filing. Filed on the anniversary of the parties' relationship.</div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- SECTION 7: FINAL OUTPUT -->
+  <section id="output">
+    <div class="section-header">
+      <span class="section-num">§ 07</span>
+      <h2 class="section-title">Final Output — Drafted Documents</h2>
+    </div>
+ 
+    <p style="font-size:14px;line-height:1.85;margin-bottom:36px;color:#444;">
+      Four documents were produced independently, filed on time, and structured to meet Indiana's procedural and substantive requirements. All are reproduced below in anonymized form.
+    </p>
+ 
+    <!-- DOC 1: APPEARANCE -->
+    <div class="doc-block">
+      <div class="doc-header">
+        <div class="doc-icon">📄</div>
+        <div>
+          <div class="doc-title">Document 01 of 04</div>
+          <div class="doc-name">Appearance of Respondent</div>
+        </div>
+      </div>
+      <div class="doc-body">
+        <div class="doc-caption">
+          State of Indiana — Sample County Superior Court 1 — Cause No. 00D00‑0000‑DC‑000000<br>
+          In Re the Marriage of: Jane Doe (Mother) and John Doe (Father)
+        </div>
+        <div class="heading">Appearance of Respondent</div>
+        <table class="doc-table">
+          <tr><th>Field</th><th>Information</th></tr>
+          <tr><td>Full Legal Name</td><td>John Doe</td></tr>
+          <tr><td>Role in Case</td><td>Respondent / Father</td></tr>
+          <tr><td>Representing</td><td>Self (Pro Se)</td></tr>
+          <tr><td>Mailing Address</td><td>0000 Sample Street, Sample City, Indiana 00000</td></tr>
+          <tr><td>Phone</td><td>[Redacted for Portfolio]</td></tr>
+          <tr><td>Email</td><td>[Redacted for Portfolio]</td></tr>
+        </table>
+        <p>I, John Doe, hereby enter my appearance as the Father and Respondent in the above-captioned dissolution of marriage proceeding. I am appearing pro se (without an attorney). I request that all notices, orders, and filings from this Court be sent to the address and email listed above.</p>
+        <div class="doc-sig">
+          <div>
+            <div class="sig-line">/s/ John Doe, Father</div>
+            <div class="sig-label">Respondent — Pro Se</div>
+          </div>
+          <div class="sig-meta">Date: [Date C]<br>0000 Sample Street<br>Sample City, Indiana 00000</div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- DOC 2: ENLARGEMENT -->
+    <div class="doc-block">
+      <div class="doc-header">
+        <div class="doc-icon">📄</div>
+        <div>
+          <div class="doc-title">Document 02 of 04</div>
+          <div class="doc-name">Notice of Automatic Enlargement of Time</div>
+        </div>
+      </div>
+      <div class="doc-body">
+        <div class="doc-caption">Father's Notice of Automatic Enlargement of Time — Indiana Trial Rule 6(B)</div>
+        <p>Comes now the Father, John Doe, pro se, and pursuant to Indiana Trial Rule 6(B) hereby gives notice that:</p>
+        <ul>
+          <li>The original due date for Father's response to the Petition was [Original Deadline] — 20 days from service on [Date B].</li>
+          <li>Father invokes his one-time automatic 30-day enlargement of time pursuant to Trial Rule 6(B).</li>
+          <li>The new response due date is [Extended Deadline].</li>
+          <li>Father files this Notice on or before the original due date as required by Trial Rule 6(B).</li>
+        </ul>
+        <p style="font-style:italic;font-size:13px;color:#555;">Research note: Respondent independently identified Trial Rule 6(B) through his own statutory research, understood that the notice had to be filed before the original deadline (not after), and executed the filing correctly — a procedural precision that reflects careful independent legal research.</p>
+        <div class="doc-sig">
+          <div>
+            <div class="sig-line">/s/ John Doe, Father</div>
+            <div class="sig-label">Respondent — Pro Se</div>
+          </div>
+          <div class="sig-meta">Date: [Date C]</div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- DOC 3: AFFIDAVIT -->
+    <div class="doc-block">
+      <div class="doc-header">
+        <div class="doc-icon">📋</div>
+        <div>
+          <div class="doc-title">Document 03 of 04</div>
+          <div class="doc-name">Verified Affidavit in Support of Provisional Orders and Full Disclosure</div>
+        </div>
+      </div>
+      <div class="doc-body">
+        <div class="doc-caption">Sworn Under Penalty of Perjury — Ind. Code §§ 31-15-7-4, 31-17-2-8, 31-15-4-8</div>
+ 
+        <div class="heading">I. Who I Am and What Is at Stake</div>
+        <p>I am the Father and Respondent in this action. I appear pro se. I reside at 0000 Sample Street, Sample City, Indiana — the only home our four children have ever known, located in the [School District]. The Mother's petition requests sole custody of the four minor children; exclusive possession of the marital home; exclusive possession of the marital vehicle; child support from me; and payment of marital expenses. I oppose each request.</p>
+        <p>The four children are: Child A (age 16), Child B (age 14), Child C (age 11), and Child D (age 6). All are enrolled in local schools.</p>
+ 
+        <div class="heading">II. Father's Full Financial Disclosure</div>
+        <table class="doc-table">
+          <tr>
+            <th>Account</th><th>Institution</th><th>Approximate Value</th>
+          </tr>
+          <tr><td>Investment account</td><td>[Anonymized]</td><td>Approximately $0 (inactive)</td></tr>
+          <tr><td>Forex trading account</td><td>[Anonymized]</td><td>Approximately $82</td></tr>
+          <tr><td>Gig-economy earnings account</td><td>[Anonymized]</td><td>$0 at time of filing</td></tr>
+          <tr><td>Payment processing account</td><td>[Anonymized]</td><td>$0 at time of filing</td></tr>
+          <tr><td>Retirement/benefit plan (former employer)</td><td>[Anonymized]</td><td>Unknown — Father will supplement upon discovery</td></tr>
+        </table>
+        <p>Father discloses these accounts not because they hold significant value but because Indiana's one-pot rule, Ind. Code § 31-15-7-4, requires all assets of both parties to be disclosed and accounted for, including those with no current value.</p>
+ 
+        <div class="heading">III. I Am the Primary Day-to-Day Caregiver</div>
+        <p>Throughout this marriage — and exclusively since the Mother's promotion to General Manager brought 50–60+ hour work weeks — I have been the children's principal caregiver. This period spans approximately 8 years, representing more than half the lives of three of the four children and the entirety of Child D's life from birth. My documented daily role includes:</p>
+        <ul>
+          <li>Primary morning supervision; on days Mother sleeps at alternate residence, I am solely responsible for getting Child D to his school bus.</li>
+          <li>After-school supervision of all four children on all days.</li>
+          <li>Preparation of daily meals and household maintenance on most nights.</li>
+          <li>Academic tutoring of Child B, which prevented him from being held back twice.</li>
+          <li>Structured annual summer educational program of my own design.</li>
+          <li>Monitoring of health routines including corrective eyeglass use and medical/dental follow-through.</li>
+          <li>Physical engagement, outdoor play, sports, and consistent discipline.</li>
+          <li>Primary overnight caregiver during prior residence period when Mother worked evening shifts 5 days/week.</li>
+        </ul>
+ 
+        <div class="heading">IV. The Mother's Schedule Leaves Children Without a Parent</div>
+        <p>Mother works 50–60+ hours per week as General Manager, including late nights, early mornings, and emergency call-ins on days off. On the evening service was received, Mother was called in to work and did not return until after midnight. The following night she did not return until after 3:00 a.m. I remained home with the children on both occasions. Mother has on multiple occasions spent entire nights away at an alternate residence. During every such absence, I am the only parent present with the children.</p>
+        <p>On the day service was received, Mother was unable to retrieve Child D (age 6) from school and routed the pickup through Child B (age 14) — rather than contacting me, despite my being present and available at the marital home. Mother replied that Child B was "capable of handling it." A six-year-old's school pickup is a parental responsibility, not a task for a teenage sibling while the Father is available.</p>
+ 
+        <div class="heading">V. Provisional Relief Requested</div>
+        <ul>
+          <li><strong>Custody:</strong> Award Father primary physical custody of all four minor children, or in the alternative, joint legal custody with Father as primary residential parent per Indiana Parenting Time Guidelines.</li>
+          <li><strong>Home:</strong> Deny Mother's request for exclusive possession; allow both parties to continue residing in the home pending final hearing.</li>
+          <li><strong>Vehicle:</strong> Deny exclusive possession of marital vehicle to Mother; order shared or scheduled access so Father may pursue income.</li>
+          <li><strong>Child Support:</strong> Decline to order child support at this stage given involuntary unemployment and active income-seeking efforts.</li>
+          <li><strong>Marital Expenses:</strong> Deny Mother's request pending full accounting of each party's contributions.</li>
+          <li><strong>Financial Disclosure Order:</strong> Order both parties to file verified financial disclosure statements within 14 days before any marital estate orders are entered.</li>
+          <li><strong>Life Insurance:</strong> Order Mother to disclose any life insurance policy on Father's life and prohibit alteration of beneficiary designations pending final hearing; order designation of minor children as sole beneficiaries.</li>
+        </ul>
+ 
+        <div class="doc-sig">
+          <div>
+            <div class="sig-line">/s/ John Doe, Father</div>
+            <div class="sig-label">Affirmed under penalty of perjury</div>
+          </div>
+          <div class="sig-meta">Date: [Date D]<br>Pro Se Respondent</div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- DOC 4: PERSONAL STATEMENT -->
+    <div class="doc-block">
+      <div class="doc-header">
+        <div class="doc-icon">✍️</div>
+        <div>
+          <div class="doc-title">Document 04 of 04</div>
+          <div class="doc-name">Personal Statement in Support of Provisional Orders</div>
+        </div>
+      </div>
+      <div class="doc-body">
+        <div class="doc-caption">Respondent's Personal Statement — Ind. Code § 31-15-4-8</div>
+ 
+        <div class="heading">I. The Circumstances of Service Were Not Accidental</div>
+        <p>The petition was filed on [Date A]. Service could have been executed immediately. It was not. Service was executed on [Date B] — fourteen days later — three days before the anniversary of the day the parties first became a couple. The fourteen-day gap benefited the strategy, not the legal process. It meant papers arrived at a moment of maximum emotional weight with minimum capacity to respond: no vehicle, depleted savings, no attorney, fewer than thirty days to respond.</p>
+ 
+        <div class="heading">II. The Retirement Accounts Were Not an Oversight — They Were a Choice</div>
+        <p>Before service was executed, the parties had a direct text message exchange in which Respondent stated he wanted an equal share of the retirement accounts. Petitioner's response was not to deny they existed — it was to say "you'll be receiving paperwork soon." She had already retained legal counsel. She was on written notice, before the filing, that Respondent had identified those accounts as marital assets. A licensed family law attorney had every professional obligation to know Indiana's one-pot rule and apply it. The omission is not the product of confusion. It is a deliberate choice made with full legal knowledge.</p>
+ 
+        <div class="heading">III. The Financial Pattern Reveals This Petition Is About Assets — Not the Children</div>
+        <p>Every item the Petitioner claims is tied to the Respondent's name, his credit, and his financial contributions. Everything she holds is absent from the filing. The petition requests the home Respondent qualified for, the vehicle Respondent funded, and financial support from a man whose income she has systematically impaired by withholding the marital vehicle. If the children's best interest were the driving concern, the petition would have addressed who watches them while Petitioner works until midnight. It does not — because that question has only one honest answer, and that answer is me.</p>
+ 
+        <div class="heading">IV. The Petitioner's Own Texts Contradict Her Petition</div>
+        <p>The petition requests child support and payment of marital expenses. Respondent holds a text message from Petitioner in which she states she never asked for those payments. Either Petitioner instructed her attorney to request relief she privately disclaimed — or the petition does not accurately reflect her instructions. In either case, this Court is being asked to enter orders based on representations that the Petitioner's own prior written statements directly contradict. Sworn clarification should be required before any financial orders are entered.</p>
+ 
+        <div class="heading">V. I Tried to Resolve This Before I Filed Anything</div>
+        <p>I did not respond to these papers with immediate legal action. I responded first as a husband. I reached out multiple times asking what I had done wrong and what I could do differently. No answer was offered. I asked for one example of where I had fallen short as a husband and father. None was given. Even after understanding the full weight of what had been filed, I made one final attempt to ask what had led to this point. She did not respond. I filed my response that morning — not in anger, not in retaliation — because she left me no other choice and because my children needed someone to stand up.</p>
+ 
+        <div class="heading">VI. Provisional Relief Requested</div>
+        <ul>
+          <li>Deny exclusive possession of the marital home; allow both parties to reside pending final hearing or designate Father as primary residential parent.</li>
+          <li>Award Father primary physical custody or joint custody with Father as primary residential parent.</li>
+          <li>Deny exclusive possession of marital vehicle; order shared or scheduled access so Father may pursue earned income.</li>
+          <li>Decline to order child support given involuntary unemployment and active income-seeking efforts.</li>
+          <li>Order both parties to file complete verified financial disclosures within 14 days before any orders affecting the marital estate are entered.</li>
+          <li>Order Mother to disclose and refrain from altering any life insurance policy on Father's life; order minor children designated as sole beneficiaries pending final hearing.</li>
+        </ul>
+ 
+        <p style="margin-top:20px;font-style:italic;font-size:13px;color:#555;">I affirm under the penalties of perjury that the foregoing is true and correct to the best of my knowledge, information, and belief.</p>
+ 
+        <div class="doc-sig">
+          <div>
+            <div class="sig-line">/s/ John Doe, Father</div>
+            <div class="sig-label">Respondent — Pro Se</div>
+          </div>
+          <div class="sig-meta">Date: [Date E]<br>0000 Sample Street<br>Sample City, Indiana 00000</div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- SKILLS DEMONSTRATED -->
+    <div style="background:var(--ink);padding:36px 40px;margin-top:8px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;">Skills Demonstrated in This Portfolio</div>
+      <div class="skills-row">
+        <span class="skill-badge">Independent Statutory Research</span>
+        <span class="skill-badge">Issue Spotting</span>
+        <span class="skill-badge">IRAC Analysis</span>
+        <span class="skill-badge">Case Law Synthesis</span>
+        <span class="skill-badge">Document Drafting</span>
+        <span class="skill-badge">Procedural Compliance</span>
+        <span class="skill-badge">Pro Se Advocacy</span>
+        <span class="skill-badge">Financial Disclosure</span>
+        <span class="skill-badge">Custody Law — Indiana</span>
+        <span class="skill-badge">Marital Property Law</span>
+        <span class="skill-badge">Evidence Organization</span>
+        <span class="skill-badge">Logical Structure</span>
+        <span class="skill-badge">Software Engineering Background</span>
+        <span class="skill-badge">Technical Writing</span>
+        <span class="skill-badge">Systems Thinking</span>
+        <span class="skill-badge">Deadline Management</span>
+      </div>
+      <p style="font-family:'Libre Baskerville',serif;font-size:13px;line-height:1.9;color:rgba(245,240,232,0.65);margin-top:24px;max-width:700px;">
+        This portfolio demonstrates that a software engineer with no prior legal training can independently identify applicable statutes, research and synthesize case law, draft procedurally compliant court documents, and present a coherent legal argument — all within a compressed timeline, under significant personal hardship, and without attorney assistance. The structured, systems-oriented thinking developed in software engineering transferred directly to legal research: breaking a complex case into discrete legal questions, researching each question methodically, and building a logical output from the findings.
+      </p>
+    </div>
+ 
+  </section>
+ 
+</main>
+ 
+</body>
+</html>

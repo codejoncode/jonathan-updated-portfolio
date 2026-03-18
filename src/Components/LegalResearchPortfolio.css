@@ -1,0 +1,911 @@
+/* Legal Research Portfolio Styles */
+
+.legal-portfolio-container {
+  --ink: #1a1208;
+  --parchment: #f5f0e8;
+  --cream: #faf7f2;
+  --gold: #b8963e;
+  --gold-light: #d4b06a;
+  --rust: #8b3a2a;
+  --slate: #3d4a5c;
+  --rule: #c8b99a;
+  --sidebar-w: 260px;
+
+  display: flex;
+  min-height: 100vh;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* ── SIDEBAR ── */
+.legal-nav {
+  width: var(--sidebar-w);
+  min-height: 100vh;
+  background: var(--ink);
+  color: var(--parchment);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  z-index: 100;
+  border-right: 3px solid var(--gold);
+  font-family: "Libre Baskerville", Georgia, serif;
+}
+
+.nav-header {
+  padding: 32px 24px 24px;
+  border-bottom: 1px solid rgba(184, 150, 62, 0.35);
+}
+
+.nav-header .monogram {
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.nav-header .name {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rule);
+  margin-top: 8px;
+}
+
+.nav-header .title {
+  font-size: 11px;
+  color: var(--gold-light);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+.legal-nav ul {
+  list-style: none;
+  padding: 20px 0;
+  flex: 1;
+}
+
+.legal-nav ul li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  text-decoration: none;
+  color: rgba(245, 240, 232, 0.7);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  border-left: 2px solid transparent;
+}
+
+.legal-nav ul li a:hover,
+.legal-nav ul li a.active {
+  color: var(--gold-light);
+  border-left-color: var(--gold);
+  background: rgba(184, 150, 62, 0.08);
+}
+
+.legal-nav ul li a .num {
+  font-size: 9px;
+  color: var(--gold);
+  min-width: 18px;
+  font-weight: 500;
+}
+
+.nav-footer {
+  padding: 20px 24px;
+  border-top: 1px solid rgba(184, 150, 62, 0.2);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  color: rgba(245, 240, 232, 0.35);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+
+/* ── MAIN ── */
+.legal-main {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  padding: 0;
+}
+
+/* ── HERO ── */
+.legal-hero {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 72px 64px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.legal-hero::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 400px;
+  height: 400px;
+  border: 1px solid rgba(184, 150, 62, 0.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.legal-hero::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(184, 150, 62, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-label::before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.legal-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 900;
+  line-height: 1.1;
+  max-width: 640px;
+  margin-bottom: 24px;
+}
+
+.legal-hero h1 em {
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(184, 150, 62, 0.25);
+}
+
+.hero-meta-item .label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero-meta-item .value {
+  font-size: 13px;
+  color: var(--parchment);
+  margin-top: 4px;
+}
+
+/* ── SECTIONS ── */
+.legal-section {
+  padding: 64px 64px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.legal-section:last-child {
+  border-bottom: none;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.section-num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  background: rgba(184, 150, 62, 0.1);
+  border: 1px solid rgba(184, 150, 62, 0.3);
+  padding: 3px 8px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 8px;
+  flex: 1;
+}
+
+/* ── PETITION BOX ── */
+.petition-box {
+  background: white;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--slate);
+  padding: 32px 36px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.petition-box .stamp {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--rust);
+  text-transform: uppercase;
+  border: 1px solid var(--rust);
+  padding: 2px 8px;
+  opacity: 0.7;
+  transform: rotate(2deg);
+}
+
+.petition-box h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  color: var(--slate);
+  margin-bottom: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.petition-box p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #3a3a3a;
+}
+
+.petition-claims {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.claim-item {
+  background: #f8f5f0;
+  border: 1px solid var(--rule);
+  padding: 16px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.claim-item .icon {
+  font-size: 18px;
+  min-width: 24px;
+  margin-top: 1px;
+}
+
+.claim-item .text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.claim-item .text strong {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 3px;
+}
+
+/* ── STATUTE CARDS ── */
+.statute-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.statute-card {
+  background: white;
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--gold);
+  padding: 24px;
+}
+
+.statute-code {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.statute-name {
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.statute-text {
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: #444;
+}
+
+/* ── CASE LAW ── */
+.case-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.case-card {
+  background: white;
+  border: 1px solid var(--rule);
+  padding: 22px 28px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.case-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: white;
+  background: var(--slate);
+  padding: 4px 10px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  height: fit-content;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-name {
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+  font-style: italic;
+}
+
+.case-cite {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.case-holding {
+  font-size: 13px;
+  line-height: 1.75;
+  color: #333;
+}
+
+/* ── ANALYSIS TABLE ── */
+.analysis-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: white;
+}
+
+.analysis-table th {
+  background: var(--ink);
+  color: var(--gold);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  text-align: left;
+  border: 1px solid rgba(184, 150, 62, 0.3);
+}
+
+.analysis-table td {
+  padding: 14px 16px;
+  border: 1px solid var(--rule);
+  vertical-align: top;
+  line-height: 1.7;
+}
+
+.analysis-table tr:nth-child(even) td {
+  background: rgba(200, 185, 154, 0.08);
+}
+
+.analysis-table .issue {
+  font-weight: 700;
+  color: var(--slate);
+}
+.analysis-table .fact {
+  color: #333;
+  font-size: 12.5px;
+}
+.analysis-table .law {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  color: var(--gold);
+}
+.analysis-table .outcome {
+  font-size: 12px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.badge-green {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+.badge-red {
+  background: #fce4ec;
+  color: #b71c1c;
+  border: 1px solid #f8bbd0;
+}
+.badge-blue {
+  background: #e3f2fd;
+  color: #0d47a1;
+  border: 1px solid #bbdefb;
+}
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), rgba(184, 150, 62, 0.2));
+}
+
+.tl-item {
+  position: relative;
+  margin-bottom: 28px;
+  padding-left: 20px;
+}
+
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -26px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  border-radius: 50%;
+  border: 2px solid var(--cream);
+  box-shadow: 0 0 0 2px var(--gold);
+}
+
+.tl-date {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.tl-event {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--ink);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.tl-detail {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #555;
+  font-style: italic;
+}
+
+/* ── SKILLS BADGES ── */
+.skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.skill-badge {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(184, 150, 62, 0.1);
+  color: var(--gold);
+  border: 1px solid rgba(184, 150, 62, 0.35);
+  padding: 4px 12px;
+  border-radius: 2px;
+}
+
+.callout {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 28px 32px;
+  border-left: 4px solid var(--gold);
+  margin: 28px 0;
+}
+
+.callout p {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  line-height: 1.75;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .legal-nav {
+    width: 220px;
+  }
+  .legal-main {
+    margin-left: 220px;
+  }
+}
+
+@media (max-width: 900px) {
+  .legal-nav {
+    width: 200px;
+  }
+  .legal-main {
+    margin-left: 200px;
+  }
+  .legal-section {
+    padding: 40px 32px;
+  }
+  .legal-hero {
+    padding: 48px 32px 40px;
+  }
+  .petition-claims {
+    grid-template-columns: 1fr;
+  }
+  .statute-grid {
+    grid-template-columns: 1fr;
+  }
+  .case-card {
+    grid-template-columns: 1fr;
+  }
+  .case-tag {
+    writing-mode: horizontal-tb;
+    transform: none;
+    width: fit-content;
+  }
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .section-title {
+    border-bottom: 2px solid var(--gold);
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .legal-nav {
+    width: 180px;
+    padding: 0;
+  }
+  .legal-nav .nav-header {
+    padding: 20px 12px 16px;
+  }
+  .legal-nav .monogram {
+    font-size: 36px;
+  }
+  .legal-nav .name {
+    font-size: 9px;
+  }
+  .legal-nav ul li a {
+    padding: 8px 12px;
+    font-size: 9px;
+  }
+  .legal-main {
+    margin-left: 180px;
+  }
+  .legal-section {
+    padding: 36px 24px;
+  }
+  .legal-hero {
+    padding: 40px 24px 32px;
+  }
+  .legal-hero h1 {
+    font-size: 28px;
+  }
+  .hero-meta {
+    gap: 20px;
+    flex-direction: column;
+  }
+  .hero-meta-item .value {
+    font-size: 12px;
+  }
+  .section-num {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+  .section-title {
+    font-size: 22px;
+  }
+  .analysis-table {
+    font-size: 11px;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .analysis-table thead,
+  .analysis-table tbody,
+  .analysis-table th,
+  .analysis-table td {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .legal-portfolio-container {
+    --sidebar-w: 0;
+  }
+  .legal-nav {
+    display: none;
+  }
+  .legal-main {
+    margin-left: 0;
+  }
+  .legal-section {
+    padding: 24px 16px;
+  }
+  .legal-hero {
+    padding: 28px 16px 24px;
+  }
+  .legal-hero h1 {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .hero-label {
+    font-size: 9px;
+  }
+  .hero-label::before {
+    width: 20px;
+  }
+  .hero-meta {
+    gap: 16px;
+    flex-direction: column;
+  }
+  .hero-meta-item .label {
+    font-size: 8px;
+  }
+  .hero-meta-item .value {
+    font-size: 11px;
+  }
+  .section-header {
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .section-num {
+    font-size: 9px;
+    padding: 2px 4px;
+    min-width: 30px;
+  }
+  .section-title {
+    font-size: 18px;
+  }
+  .petition-box {
+    padding: 20px 16px;
+    margin-bottom: 16px;
+  }
+  .petition-box .stamp {
+    font-size: 8px;
+    padding: 1px 4px;
+  }
+  .claim-item {
+    padding: 12px 12px;
+    gap: 8px;
+  }
+  .claim-item .icon {
+    font-size: 16px;
+    min-width: 20px;
+  }
+  .claim-item .text {
+    font-size: 12px;
+  }
+  .statute-card {
+    padding: 16px;
+  }
+  .statute-code {
+    font-size: 10px;
+  }
+  .statute-name {
+    font-size: 13px;
+  }
+  .statute-text {
+    font-size: 11px;
+  }
+  .case-card {
+    padding: 16px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .case-tag {
+    width: auto;
+    padding: 3px 8px;
+    font-size: 8px;
+  }
+  .case-name {
+    font-size: 12px;
+  }
+  .case-cite {
+    font-size: 9px;
+  }
+  .case-holding {
+    font-size: 12px;
+  }
+  .analysis-table {
+    font-size: 10px;
+  }
+  .analysis-table td {
+    padding: 8px 10px;
+  }
+  .skills-row {
+    gap: 6px;
+  }
+  .skill-badge {
+    font-size: 8px;
+    padding: 3px 8px;
+  }
+  .timeline {
+    padding-left: 24px;
+  }
+  .tl-item::before {
+    left: -20px;
+  }
+  .timeline::before {
+    left: 8px;
+  }
+  .tl-date {
+    font-size: 9px;
+  }
+  .tl-event {
+    font-size: 12px;
+  }
+  .tl-detail {
+    font-size: 11px;
+  }
+  .callout {
+    padding: 16px 16px;
+    border-left: 3px solid var(--gold);
+  }
+  .callout p {
+    font-size: 14px;
+  }
+  .callout-source {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-hero {
+    padding: 20px 12px 16px;
+  }
+  .legal-hero h1 {
+    font-size: 18px;
+  }
+  .legal-section {
+    padding: 16px 12px;
+  }
+  .hero-label {
+    font-size: 8px;
+    flex-direction: column;
+  }
+  .hero-label::before {
+    display: none;
+  }
+  .section-header {
+    gap: 6px;
+  }
+  .section-num {
+    font-size: 8px;
+  }
+  .section-title {
+    font-size: 16px;
+  }
+  .petition-box {
+    padding: 16px 12px;
+  }
+  .claim-item {
+    padding: 10px 10px;
+    gap: 6px;
+  }
+  .claim-item .icon {
+    font-size: 14px;
+  }
+  .claim-item .text {
+    font-size: 11px;
+  }
+  .statute-card {
+    padding: 12px;
+  }
+  .statute-code {
+    font-size: 9px;
+  }
+  .statute-name {
+    font-size: 12px;
+  }
+  .statute-text {
+    font-size: 10px;
+  }
+  .case-card {
+    padding: 12px;
+  }
+  .analysis-table {
+    font-size: 9px;
+  }
+  .analysis-table td,
+  .analysis-table th {
+    padding: 6px 8px;
+  }
+  .skill-badge {
+    font-size: 7px;
+    padding: 2px 6px;
+  }
+  .doc-body {
+    padding: 16px 12px;
+  }
+  .doc-body p {
+    font-size: 12px;
+  }
+}
