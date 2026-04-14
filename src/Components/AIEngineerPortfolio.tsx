@@ -1060,7 +1060,7 @@ function RAGVisualizer() {
 
       {/* Result */}
       <div className={`ai-rag-result ${showResult ? "visible" : ""}`}>
-        <div className="ai-rag-result-label">// llm_response · citations_grounded</div>
+        <div className="ai-rag-result-label">{`// llm_response · citations_grounded`}</div>
         <div
           className="ai-rag-result-text"
           dangerouslySetInnerHTML={{ __html: RAG_RESULT.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>") }}
@@ -1188,7 +1188,7 @@ function AgentSimulator() {
 function OverviewTab() {
   return (
     <div>
-      <div className="ai-s-label">// core_competencies</div>
+      <div className="ai-s-label">{`// core_competencies`}</div>
       <div className="ai-s-title">What I Build With AI</div>
       <p className="ai-s-desc">Proficiency across the full AI engineering stack — from raw LLM integration to production systems with observability, evals, and guardrails.</p>
       <div className="ai-competencies">
@@ -1208,7 +1208,7 @@ function OverviewTab() {
         ))}
       </div>
 
-      <div className="ai-s-label">// philosophy.principles</div>
+      <div className="ai-s-label">{`// philosophy.principles`}</div>
       <div className="ai-s-title">How I Approach AI Engineering</div>
       <p className="ai-s-desc">The principles separating maintainable AI systems from expensive technical debt.</p>
       <div className="ai-phil-grid">
@@ -1227,7 +1227,7 @@ function DemoLabTab() {
   return (
     <div>
       {/* CHAT */}
-      <div className="ai-s-label">// demo.interactive_chat</div>
+      <div className="ai-s-label">{`// demo.interactive_chat`}</div>
       <div className="ai-s-title">Live AI Chat Demo</div>
       <p className="ai-s-desc">
         Select a pre-loaded AI engineering scenario or type your own question. Each response demonstrates how I approach real production problems — not textbook answers.
@@ -1236,7 +1236,7 @@ function DemoLabTab() {
 
       {/* RAG PIPELINE */}
       <div className="ai-demo-divider"><span className="ai-demo-divider-label">RAG Pipeline Visualizer</span></div>
-      <div className="ai-s-label">// rag.execution_trace</div>
+      <div className="ai-s-label">{`// rag.execution_trace`}</div>
       <div className="ai-s-title">Retrieval-Augmented Generation — Live Trace</div>
       <p className="ai-s-desc">
         Click "Execute Query" to watch a production RAG pipeline run in real time — from query embedding through vector search, re-ranking, prompt assembly, and LLM generation with citations.
@@ -1245,7 +1245,7 @@ function DemoLabTab() {
 
       {/* AGENT LOOP */}
       <div className="ai-demo-divider"><span className="ai-demo-divider-label">ReAct Agent Simulator</span></div>
-      <div className="ai-s-label">// agent.react_loop</div>
+      <div className="ai-s-label">{`// agent.react_loop`}</div>
       <div className="ai-s-title">Autonomous Agent — ReAct Loop</div>
       <p className="ai-s-desc">
         Watch an AI agent plan, select tools, execute them, observe results, and iterate — the complete ReAct (Reasoning + Acting) loop that powers production agentic systems.
@@ -1259,7 +1259,7 @@ function ProjectsTab() {
   const [expanded, setExpanded] = useState<string | null>(null);
   return (
     <div>
-      <div className="ai-s-label">// ai_projects.showcase</div>
+      <div className="ai-s-label">{`// ai_projects.showcase`}</div>
       <div className="ai-s-title">AI Systems I've Built</div>
       <p className="ai-s-desc">Production-grade AI applications with measurable impact. Expand each card to see the implementation details.</p>
       <div className="ai-proj-grid">
@@ -1288,7 +1288,7 @@ function ProjectsTab() {
               {expanded === p.title ? "▲ hide details" : "▼ show technical details"}
             </button>
             <div className="ai-proj-detail">
-              <div className="ai-detail-lbl">// implementation</div>
+              <div className="ai-detail-lbl">{`// implementation`}</div>
               <ul className="ai-detail-list">
                 {p.details.map((d, i) => <li key={i}>{d}</li>)}
               </ul>
@@ -1305,7 +1305,7 @@ function PromptLabTab() {
   const cur = PROMPT_TECHNIQUES[active];
   return (
     <div>
-      <div className="ai-s-label">// prompt_engineering.lab</div>
+      <div className="ai-s-label">{`// prompt_engineering.lab`}</div>
       <div className="ai-s-title">Prompt Engineering Techniques</div>
       <p className="ai-s-desc">
         Prompt engineering is the fastest lever for improving output quality without touching weights. Each technique below shows the design pattern alongside the model's output — the same patterns I apply in production.
@@ -1335,7 +1335,7 @@ function PromptLabTab() {
         </div>
       </div>
 
-      <div className="ai-s-label">// credentials.ai_specific</div>
+      <div className="ai-s-label">{`// credentials.ai_specific`}</div>
       <div className="ai-s-title">AI Credentials &amp; Training</div>
       <p className="ai-s-desc">Formal training and certifications across AI engineering, applied LLMs, and ML infrastructure.</p>
       <div className="ai-certs-grid">
@@ -1364,7 +1364,7 @@ function PromptLabTab() {
 function StackTab() {
   return (
     <div>
-      <div className="ai-s-label">// tech_stack.full_inventory</div>
+      <div className="ai-s-label">{`// tech_stack.full_inventory`}</div>
       <div className="ai-s-title">AI Engineering Stack</div>
       <p className="ai-s-desc">Every tool chosen for a reason — from cloud inference endpoints to local embedding pipelines to production observability dashboards.</p>
       <div className="ai-stack-grid">
@@ -1382,7 +1382,7 @@ function StackTab() {
         ))}
       </div>
 
-      <div className="ai-s-label">// architecture.patterns</div>
+      <div className="ai-s-label">{`// architecture.patterns`}</div>
       <div className="ai-s-title">Architecture Patterns I Design</div>
       <p className="ai-s-desc">The system patterns I reach for most — each with clear tradeoffs, appropriate use cases, and production-hardening considerations.</p>
       <div className="ai-arch-grid">

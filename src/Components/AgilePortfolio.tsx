@@ -146,7 +146,7 @@ function PhaseCard({ phase }: { phase: Phase }) {
 function ScrumTab() {
   return (
     <div>
-      <div className="ap-section-label">// scrum_master.approach</div>
+      <div className="ap-section-label">{`// scrum_master.approach`}</div>
       <div className="ap-section-title">How I Start a Project</div>
       <p className="ap-section-desc">
         A disciplined, phased approach to launching Agile teams. Click each phase to expand the details and deliverables.{" "}
@@ -157,7 +157,7 @@ function ScrumTab() {
         {SCRUM_PHASES.map((p) => <PhaseCard key={p.num} phase={p} />)}
       </div>
 
-      <div className="ap-section-label">// scrum_ceremonies.schedule</div>
+      <div className="ap-section-label">{`// scrum_ceremonies.schedule`}</div>
       <div className="ap-section-title">Ceremony Cadence</div>
       <p className="ap-section-desc">
         Ceremonies are investments, not overhead. Here's how I structure each one for maximum signal-to-noise.
@@ -173,7 +173,7 @@ function ScrumTab() {
         ))}
       </div>
 
-      <div className="ap-section-label">// sprint.board_snapshot</div>
+      <div className="ap-section-label">{`// sprint.board_snapshot`}</div>
       <div className="ap-section-title">Sample Sprint Board</div>
       <p className="ap-section-desc">Illustrative sprint state showing story distribution across swim lanes.</p>
       <div className="ap-sprint-board">
@@ -201,7 +201,7 @@ function ScrumTab() {
         </div>
       </div>
 
-      <div className="ap-section-label">// tools.stack</div>
+      <div className="ap-section-label">{`// tools.stack`}</div>
       <div className="ap-section-title">Tools &amp; Platforms</div>
       <p className="ap-section-desc">I meet teams where they are — these are the tools I work with fluently.</p>
       <div className="ap-tools-grid">
@@ -210,7 +210,7 @@ function ScrumTab() {
         ))}
       </div>
 
-      <div className="ap-section-label">// scrum_master.philosophy</div>
+      <div className="ap-section-label">{`// scrum_master.philosophy`}</div>
       <div className="ap-section-title">Core Principles</div>
       <p className="ap-section-desc">The values that guide how I show up for every team.</p>
       <div className="ap-philosophy-grid">
@@ -230,7 +230,7 @@ function ScrumTab() {
 function PMTab() {
   return (
     <div>
-      <div className="ap-section-label">// project_manager.framework</div>
+      <div className="ap-section-label">{`// project_manager.framework`}</div>
       <div className="ap-section-title">PM Project Launch Framework</div>
       <p className="ap-section-desc">
         A structured approach grounded in PMBoK principles, adapted for modern hybrid delivery.
@@ -241,7 +241,7 @@ function PMTab() {
         {PM_PHASES.map((p) => <PhaseCard key={p.num} phase={p} />)}
       </div>
 
-      <div className="ap-section-label">// project.baseline_metrics</div>
+      <div className="ap-section-label">{`// project.baseline_metrics`}</div>
       <div className="ap-section-title">Baseline KPIs I Track from Day One</div>
       <p className="ap-section-desc">
         You can't manage what you don't measure. These are the metrics I establish at project kickoff.
@@ -262,7 +262,7 @@ function PMTab() {
         ))}
       </div>
 
-      <div className="ap-section-label">// project.governance_model</div>
+      <div className="ap-section-label">{`// project.governance_model`}</div>
       <div className="ap-section-title">Governance Structure</div>
       <p className="ap-section-desc">How I structure accountability across the project lifecycle.</p>
       <div className="ap-pm-matrix">
@@ -296,7 +296,7 @@ function PMTab() {
         ))}
       </div>
 
-      <div className="ap-section-label">// risk.register_preview</div>
+      <div className="ap-section-label">{`// risk.register_preview`}</div>
       <div className="ap-section-title">Risk Register (Sample)</div>
       <p className="ap-section-desc">
         Risks I proactively identify and track from initiation. Every risk has an owner and a mitigation strategy.
