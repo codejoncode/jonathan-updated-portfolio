@@ -86,6 +86,33 @@ const NavBar: React.FC = () => {
       >
         Legal Research
       </Menu.Item>
+
+      <Menu.Item
+        as={Link}
+        to="/agile"
+        className="nav-link"
+        style={{
+          color: textAccent,
+          transition: "all 0.3s ease",
+          fontWeight: "500",
+        }}
+      >
+        Agile / PM
+      </Menu.Item>
+
+      <Menu.Item
+        as={Link}
+        to="/ai-engineer"
+        className="nav-link"
+        style={{
+          color: "#00D2FF",
+          transition: "all 0.3s ease",
+          fontWeight: "700",
+          letterSpacing: "0.5px",
+        }}
+      >
+        AI Engineer
+      </Menu.Item>
     </Menu>
   );
 };

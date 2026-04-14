@@ -1,0 +1,666 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap');
+
+/* ─── AGILE PORTFOLIO THEME ─── */
+/* CSS vars scoped to component root to avoid global conflicts */
+.agile-portfolio {
+  --ap-bg: #0F0F23;
+  --ap-surface: #1A1A2E;
+  --ap-surface2: #161d32;
+  --ap-border: #1e2a45;
+  --ap-accent: #00D2FF;
+  --ap-accent2: #7b61ff;
+  --ap-accent3: #39ff14;
+  --ap-text: #EAEAEA;
+  --ap-muted: #4a5a78;
+  --ap-warn: #ff6b35;
+
+  background: var(--ap-bg);
+  min-height: 100vh;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--ap-text);
+  overflow-x: hidden;
+}
+
+/* ─── HERO ─── */
+.agile-portfolio .ap-hero {
+  position: relative;
+  padding: 80px 48px 60px;
+  border-bottom: 1px solid var(--ap-border);
+  overflow: hidden;
+}
+
+.agile-portfolio .ap-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--ap-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ap-border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.4;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 40%, transparent 100%);
+}
+
+.agile-portfolio .ap-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--ap-accent);
+  color: var(--ap-accent);
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 6px 14px;
+  border-radius: 2px;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.agile-portfolio .ap-hero-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ap-accent);
+  animation: ap-pulse 2s infinite;
+}
+
+@keyframes ap-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+.agile-portfolio .ap-hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2px;
+  position: relative;
+}
+
+.agile-portfolio .ap-hero h1 span.ap-cyan   { color: var(--ap-accent); }
+.agile-portfolio .ap-hero h1 span.ap-purple { color: var(--ap-accent2); }
+
+.agile-portfolio .ap-hero-sub {
+  margin-top: 20px;
+  color: var(--ap-muted);
+  font-size: 13px;
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+.agile-portfolio .ap-hero-sub span { color: var(--ap-accent3); }
+
+/* ─── TABS BAR ─── */
+.agile-portfolio .ap-tabs-bar {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--ap-border);
+  background: var(--ap-surface);
+  padding: 0 48px;
+  position: sticky;
+  top: 60px; /* clear site navbar */
+  z-index: 90;
+}
+
+.agile-portfolio .ap-tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--ap-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 18px 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.agile-portfolio .ap-tab-btn:hover  { color: var(--ap-text); }
+
+.agile-portfolio .ap-tab-btn.active {
+  color: var(--ap-accent);
+  border-bottom-color: var(--ap-accent);
+}
+
+.agile-portfolio .ap-tab-btn .ap-tab-num {
+  font-size: 10px;
+  color: var(--ap-accent2);
+  margin-right: 8px;
+}
+
+/* ─── CONTENT ─── */
+.agile-portfolio .ap-tab-content {
+  padding: 48px;
+  max-width: 1100px;
+  animation: ap-fadeIn 0.3s ease;
+}
+
+@keyframes ap-fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── SECTION HEADINGS ─── */
+.agile-portfolio .ap-section-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ap-accent2);
+  margin-bottom: 8px;
+}
+
+.agile-portfolio .ap-section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ap-text);
+  margin-bottom: 8px;
+}
+
+.agile-portfolio .ap-section-desc {
+  color: var(--ap-muted);
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 640px;
+  margin-bottom: 40px;
+}
+
+/* ─── PHASE TIMELINE ─── */
+.agile-portfolio .ap-timeline {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 56px;
+}
+
+.agile-portfolio .ap-timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--ap-accent), var(--ap-accent2), transparent);
+}
+
+.agile-portfolio .ap-phase {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.agile-portfolio .ap-phase-connector {
+  position: absolute;
+  left: -28px;
+  top: 18px;
+  width: 18px;
+  height: 1px;
+  background: var(--ap-border);
+}
+
+.agile-portfolio .ap-phase-dot {
+  position: absolute;
+  left: -36px;
+  top: 12px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--ap-accent);
+  background: var(--ap-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agile-portfolio .ap-phase-dot.purple { border-color: var(--ap-accent2); }
+.agile-portfolio .ap-phase-dot.green  { border-color: var(--ap-accent3); }
+.agile-portfolio .ap-phase-dot.orange { border-color: var(--ap-warn); }
+
+.agile-portfolio .ap-phase-dot-inner {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ap-accent);
+}
+
+.agile-portfolio .ap-phase-dot.purple .ap-phase-dot-inner { background: var(--ap-accent2); }
+.agile-portfolio .ap-phase-dot.green  .ap-phase-dot-inner { background: var(--ap-accent3); }
+.agile-portfolio .ap-phase-dot.orange .ap-phase-dot-inner { background: var(--ap-warn); }
+
+.agile-portfolio .ap-phase-card {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-border);
+  border-radius: 4px;
+  padding: 24px 28px;
+  margin-bottom: 12px;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.agile-portfolio .ap-phase-card:hover    { border-color: var(--ap-accent); }
+.agile-portfolio .ap-phase-card.expanded { border-color: var(--ap-accent2); }
+
+.agile-portfolio .ap-phase-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.agile-portfolio .ap-phase-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.agile-portfolio .ap-phase-num        { font-size: 10px; color: var(--ap-accent); letter-spacing: 2px; }
+.agile-portfolio .ap-phase-num.purple { color: var(--ap-accent2); }
+.agile-portfolio .ap-phase-num.green  { color: var(--ap-accent3); }
+.agile-portfolio .ap-phase-num.orange { color: var(--ap-warn); }
+
+.agile-portfolio .ap-phase-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.agile-portfolio .ap-phase-duration {
+  font-size: 10px;
+  color: var(--ap-muted);
+  border: 1px solid var(--ap-border);
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+
+.agile-portfolio .ap-phase-chevron {
+  color: var(--ap-muted);
+  font-size: 12px;
+  transition: transform 0.2s;
+}
+
+.agile-portfolio .ap-phase-card.expanded .ap-phase-chevron { transform: rotate(90deg); }
+
+.agile-portfolio .ap-phase-body {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--ap-border);
+  display: none;
+}
+
+.agile-portfolio .ap-phase-card.expanded .ap-phase-body { display: block; }
+
+.agile-portfolio .ap-phase-desc {
+  font-size: 12px;
+  color: var(--ap-muted);
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+.agile-portfolio .ap-deliverables {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+}
+
+.agile-portfolio .ap-deliverable {
+  background: var(--ap-surface2);
+  border: 1px solid var(--ap-border);
+  border-radius: 2px;
+  padding: 8px 12px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ap-text);
+}
+
+.agile-portfolio .ap-deliverable::before {
+  content: '▸';
+  color: var(--ap-accent3);
+  font-size: 10px;
+}
+
+/* ─── CEREMONIES ─── */
+.agile-portfolio .ap-ceremonies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.agile-portfolio .ap-ceremony-card {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-border);
+  border-radius: 4px;
+  padding: 24px;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.agile-portfolio .ap-ceremony-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--ap-accent);
+}
+.agile-portfolio .ap-ceremony-card:nth-child(2)::before { background: var(--ap-accent2); }
+.agile-portfolio .ap-ceremony-card:nth-child(3)::before { background: var(--ap-accent3); }
+.agile-portfolio .ap-ceremony-card:nth-child(4)::before { background: var(--ap-warn); }
+.agile-portfolio .ap-ceremony-card:nth-child(5)::before { background: var(--ap-accent); }
+
+.agile-portfolio .ap-ceremony-card:hover {
+  border-color: var(--ap-accent2);
+  transform: translateY(-2px);
+}
+
+.agile-portfolio .ap-ceremony-icon  { font-size: 22px; margin-bottom: 14px; display: block; }
+
+.agile-portfolio .ap-ceremony-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.agile-portfolio .ap-ceremony-cadence {
+  font-size: 10px;
+  color: var(--ap-accent);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.agile-portfolio .ap-ceremony-desc { font-size: 11px; color: var(--ap-muted); line-height: 1.8; }
+
+/* ─── METRICS ─── */
+.agile-portfolio .ap-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.agile-portfolio .ap-metric-card {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-border);
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+}
+
+.agile-portfolio .ap-metric-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--ap-accent);
+  display: block;
+  margin-bottom: 4px;
+}
+.agile-portfolio .ap-metric-value.purple { color: var(--ap-accent2); }
+.agile-portfolio .ap-metric-value.green  { color: var(--ap-accent3); }
+.agile-portfolio .ap-metric-value.orange { color: var(--ap-warn); }
+
+.agile-portfolio .ap-metric-label {
+  font-size: 10px;
+  color: var(--ap-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ─── TOOLS GRID ─── */
+.agile-portfolio .ap-tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 56px;
+}
+
+.agile-portfolio .ap-tool-tag {
+  background: var(--ap-surface2);
+  border: 1px solid var(--ap-border);
+  border-radius: 2px;
+  padding: 8px 16px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--ap-text);
+  transition: all 0.15s;
+}
+
+.agile-portfolio .ap-tool-tag:hover {
+  border-color: var(--ap-accent);
+  color: var(--ap-accent);
+  background: rgba(0, 210, 255, 0.05);
+}
+
+/* ─── SPRINT BOARD ─── */
+.agile-portfolio .ap-sprint-board {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-border);
+  border-radius: 4px;
+  padding: 24px;
+  margin-bottom: 56px;
+}
+
+.agile-portfolio .ap-board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.agile-portfolio .ap-board-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.agile-portfolio .ap-board-sprint {
+  font-size: 10px;
+  color: var(--ap-accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.agile-portfolio .ap-board-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.agile-portfolio .ap-board-col-title {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ap-muted);
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ap-border);
+}
+
+.agile-portfolio .ap-board-card {
+  background: var(--ap-surface2);
+  border: 1px solid var(--ap-border);
+  border-radius: 2px;
+  padding: 10px 12px;
+  font-size: 11px;
+  margin-bottom: 8px;
+  color: var(--ap-text);
+  line-height: 1.5;
+}
+
+.agile-portfolio .ap-board-card .ap-story-pts {
+  float: right;
+  font-size: 9px;
+  color: var(--ap-accent2);
+  border: 1px solid var(--ap-accent2);
+  padding: 1px 5px;
+  border-radius: 2px;
+}
+
+/* ─── PM MATRIX ─── */
+.agile-portfolio .ap-pm-matrix {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.agile-portfolio .ap-matrix-card {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-border);
+  border-radius: 4px;
+  padding: 24px;
+}
+
+.agile-portfolio .ap-matrix-card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--ap-accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.agile-portfolio .ap-matrix-card-title.purple { color: var(--ap-accent2); }
+.agile-portfolio .ap-matrix-card-title.green  { color: var(--ap-accent3); }
+.agile-portfolio .ap-matrix-card-title.orange { color: var(--ap-warn); }
+
+.agile-portfolio .ap-matrix-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--ap-border);
+  font-size: 11px;
+}
+.agile-portfolio .ap-matrix-item:last-child { border-bottom: none; }
+.agile-portfolio .ap-matrix-item-label { color: var(--ap-muted); }
+.agile-portfolio .ap-matrix-item-val   { color: var(--ap-text); }
+
+/* ─── RISK TABLE ─── */
+.agile-portfolio .ap-risk-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 56px;
+  font-size: 12px;
+}
+
+.agile-portfolio .ap-risk-table th {
+  text-align: left;
+  padding: 10px 16px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ap-muted);
+  border-bottom: 1px solid var(--ap-border);
+  background: var(--ap-surface);
+}
+
+.agile-portfolio .ap-risk-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--ap-border);
+  color: var(--ap-text);
+}
+
+.agile-portfolio .ap-risk-table tr:hover td { background: var(--ap-surface); }
+
+.agile-portfolio .ap-risk-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.agile-portfolio .ap-risk-high { background: rgba(255,107,53,0.15); color: var(--ap-warn);    border: 1px solid var(--ap-warn); }
+.agile-portfolio .ap-risk-med  { background: rgba(123,97,255,0.15); color: var(--ap-accent2); border: 1px solid var(--ap-accent2); }
+.agile-portfolio .ap-risk-low  { background: rgba(57,255,20,0.15);  color: var(--ap-accent3); border: 1px solid var(--ap-accent3); }
+
+/* ─── PHILOSOPHY ─── */
+.agile-portfolio .ap-philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.agile-portfolio .ap-philosophy-card {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-border);
+  border-radius: 4px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.agile-portfolio .ap-philosophy-card::after {
+  content: attr(data-num);
+  position: absolute;
+  right: 20px;
+  top: 16px;
+  font-family: 'Syne', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--ap-border);
+  line-height: 1;
+}
+
+.agile-portfolio .ap-philosophy-card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--ap-accent);
+}
+.agile-portfolio .ap-philosophy-card-title.purple { color: var(--ap-accent2); }
+.agile-portfolio .ap-philosophy-card-title.green  { color: var(--ap-accent3); }
+
+.agile-portfolio .ap-philosophy-card p {
+  font-size: 11px;
+  color: var(--ap-muted);
+  line-height: 1.9;
+}
+
+/* ─── FOOTER ─── */
+.agile-portfolio .ap-footer-bar {
+  border-top: 1px solid var(--ap-border);
+  padding: 20px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.agile-portfolio .ap-footer-copy { font-size: 11px; color: var(--ap-muted); }
+
+.agile-portfolio .ap-footer-stack { display: flex; gap: 16px; }
+
+.agile-portfolio .ap-footer-stack span {
+  font-size: 10px;
+  color: var(--ap-muted);
+  letter-spacing: 1px;
+}
+
+.agile-portfolio .ap-footer-stack span.active { color: var(--ap-accent3); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 700px) {
+  .agile-portfolio .ap-board-cols   { grid-template-columns: repeat(2, 1fr); }
+  .agile-portfolio .ap-hero         { padding: 48px 24px 40px; }
+  .agile-portfolio .ap-tabs-bar     { padding: 0 16px; }
+  .agile-portfolio .ap-tab-content  { padding: 32px 24px; }
+  .agile-portfolio .ap-tab-btn      { padding: 16px 16px; font-size: 10px; }
+  .agile-portfolio .ap-pm-matrix    { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .agile-portfolio .ap-pm-matrix { grid-template-columns: 1fr; }
+}
