@@ -322,7 +322,7 @@ function PMTab() {
         </tbody>
       </table>
 
-      <div className="ap-section-label">// pm.tools_stack</div>
+      <div className="ap-section-label">{`// pm.tools_stack`}</div>
       <div className="ap-section-title">PM Toolbox</div>
       <p className="ap-section-desc">Tools I use to plan, track, and communicate across the project lifecycle.</p>
       <div className="ap-tools-grid">
