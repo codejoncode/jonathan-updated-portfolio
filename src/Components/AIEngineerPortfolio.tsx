@@ -1292,6 +1292,25 @@ function ProjectsTab() {
               <ul className="ai-detail-list">
                 {p.details.map((d, i) => <li key={i}>{d}</li>)}
               </ul>
+              {p.title === "AI Legal Research Assistant" && (
+                <a
+                  href="/case-study/ai-legal-research"
+                  style={{
+                    display: "inline-block",
+                    marginTop: "16px",
+                    backgroundColor: "rgba(0,210,255,0.1)",
+                    color: "#00D2FF",
+                    border: "1px solid rgba(0,210,255,0.4)",
+                    borderRadius: "6px",
+                    padding: "8px 16px",
+                    textDecoration: "none",
+                    fontSize: "0.85rem",
+                    fontWeight: 600,
+                  }}
+                >
+                  Read Full Case Study →
+                </a>
+              )}
             </div>
           </div>
         ))}

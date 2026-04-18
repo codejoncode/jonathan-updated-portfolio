@@ -20,6 +20,7 @@ import HeaderCard from "./HeaderCard";
 interface SkillGroups {
   FRONTEND: string[];
   BACKEND: string[];
+  "AI TOOLS": string[];
   OTHERS: string[];
 }
 
@@ -27,18 +28,25 @@ const HomePageHeader: React.FC = () => {
   const skillGroups: SkillGroups = {
     FRONTEND: [
       "React/Redux",
-      "JavaScript",
+      "JavaScript / TypeScript",
       "Node.js",
       "HTML/CSS/Less",
       "Styled Components",
     ],
-    BACKEND: ["Python/Django", "Firebase", "PostgresSQL", "Sqlite3", "Express"],
+    BACKEND: ["Python/Django", "C# / .NET", "PostgreSQL", "Firebase", "Express"],
+    "AI TOOLS": [
+      "Claude (Anthropic)",
+      "GitHub Copilot",
+      "Cursor",
+      "Perplexity",
+      "LangChain / LlamaIndex",
+    ],
     OTHERS: [
-      "LLM Integration & Prompt Engineering",
       "RAG Pipelines & Vector Search",
-      "AI Agent Development",
+      "Prompt Engineering",
+      "LLM Agent Development",
       "Scrum Master / Technical PM",
-      "C Programming & Unit Testing",
+      "Jest / Unit Testing",
     ],
   };
 
@@ -134,13 +142,23 @@ const HomePageHeader: React.FC = () => {
                     teaching assistant, and technical PM. I got here the hard way
                     and I build like it.
                   </p>
+                  <p
+                    style={{
+                      color: "#8892b0",
+                      fontSize: "0.95em",
+                      marginTop: "20px",
+                      fontStyle: "italic",
+                    }}
+                  >
+                    Open to: AI-Augmented Engineer · Prompt Engineer · AI-Assisted Full Stack · Technical Consultant (AI Workflow) · Developer Relations
+                  </p>
                 </Item.Description>
               </Item.Content>
             </Item>
           </Item.Group>
         </Segment>
 
-        <Grid columns={3} stackable>
+        <Grid columns={4} stackable>
           <Grid.Row style={{ margin: "10px" }}>
             {groups.map((groupList, index) => (
               <HeaderCard

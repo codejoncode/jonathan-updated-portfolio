@@ -20,21 +20,28 @@ const TIMELINE = [
     year: "2019–2021",
     label: "Bloom Institute of Technology",
     detail:
-      "Enrolled in a full computer science and full-stack engineering program. Didn't just graduate — became a Teaching Assistant, leading lectures for the next cohort coming up behind me.",
+      "Enrolled in a full computer science and full-stack engineering program. Didn't just graduate — became a Teaching Assistant, leading lectures for 17+ students using AI-enhanced teaching methodologies that reduced common errors and accelerated concept retention.",
     accent: "#39ff14",
+  },
+  {
+    year: "2021–2023",
+    label: "Technical Consultant — Perficient",
+    detail:
+      "Enterprise consulting at a top digital transformation firm. Gathered requirements, recommended technical solutions, and built full-stack features. Diagnosed critical financial system bugs using AI-assisted code analysis and built scalable Jest testing frameworks. Learned how to own a room and earn trust fast.",
+    accent: "#ff6b35",
   },
   {
     year: "2021–2023",
     label: "Technical Project Manager — Larkist.com",
     detail:
-      "Joined Larkist, a data science and AI-powered full-stack platform. Coordinated engineers, data scientists, and stakeholders. Shipped real product. Learned what it means to own delivery end-to-end.",
+      "Led delivery on a data science and AI-powered full-stack platform. Coordinated engineers, data scientists, and stakeholders. Applied Agile ceremonies end-to-end — from sprint planning to retrospectives — to ship real product on time.",
     accent: "#ffc947",
   },
   {
     year: "Now",
     label: "AI Engineer",
     detail:
-      "Building RAG pipelines, LLM integrations, and autonomous agents. The same drive that started this — making data faster and smarter — just at a different scale. Not prototype demos. Production systems.",
+      "Building RAG pipelines, LLM integrations, and autonomous agents. Using Claude, GitHub Copilot, and Cursor daily — not as a shortcut, but as a force multiplier. The same drive that started this in 2014: data is slow and manual until it isn't.",
     accent: "#00D2FF",
   },
 ];
