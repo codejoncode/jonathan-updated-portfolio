@@ -18,10 +18,6 @@ import {
 const Footer: React.FC = () => {
   const navigate = useNavigate();
 
-  const changePages = (path: string) => () => {
-    navigate(path);
-  };
-
   return (
     <Container
       fluid
@@ -93,7 +89,7 @@ const Footer: React.FC = () => {
                   color: anotherBlue,
                   border: `1px solid ${anotherBlue}`,
                 }}
-                onClick={changePages("/contact")}
+                onClick={() => navigate("/contact")}
               >
                 <Icon name="mail" />
                 Contact Me
@@ -111,7 +107,7 @@ const Footer: React.FC = () => {
               paddingTop: "20px",
             }}
           >
-            © 2024 Jonathan J. Holloway. All rights reserved.
+            © 2026 Jonathan J. Holloway. All rights reserved.
           </Header>
         </Grid.Column>
       </Grid>

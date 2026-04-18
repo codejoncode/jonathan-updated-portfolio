@@ -34,11 +34,11 @@ const HomePageHeader: React.FC = () => {
     ],
     BACKEND: ["Python/Django", "Firebase", "PostgresSQL", "Sqlite3", "Express"],
     OTHERS: [
-      "C Programming",
-      "Unit Testing",
-      "Project Management",
-      "Coding Teaching Assistant",
-      "Customer Service Professional",
+      "LLM Integration & Prompt Engineering",
+      "RAG Pipelines & Vector Search",
+      "AI Agent Development",
+      "Scrum Master / Technical PM",
+      "C Programming & Unit Testing",
     ],
   };
 
@@ -103,7 +103,7 @@ const HomePageHeader: React.FC = () => {
                       fontWeight: "300",
                     }}
                   >
-                    Full Stack Software Engineer
+                    AI Engineer & Full Stack Software Engineer
                   </span>
                 </Item.Meta>
                 <Item.Description>
@@ -116,7 +116,7 @@ const HomePageHeader: React.FC = () => {
                     }}
                   >
                     <Icon name="code" />
-                    Passionate Developer & Technical Leader
+                    Building Production AI Systems · Shipping Full-Stack Products
                   </Header>
                   <p
                     style={{
@@ -128,10 +128,11 @@ const HomePageHeader: React.FC = () => {
                       fontWeight: "300",
                     }}
                   >
-                    Experienced software engineer specializing in modern web
-                    technologies, with a passion for creating scalable
-                    applications and mentoring developers. Skilled in full-stack
-                    development, project management, and technical education.
+                    I build RAG pipelines, LLM integrations, and autonomous agents
+                    that solve real business problems — not prototype demos. A
+                    self-taught engineer since 2014, bootcamp graduate, former
+                    teaching assistant, and technical PM. I got here the hard way
+                    and I build like it.
                   </p>
                 </Item.Description>
               </Item.Content>

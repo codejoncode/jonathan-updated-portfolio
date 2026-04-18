@@ -39,24 +39,25 @@ const NavBar: React.FC = () => {
         as={Link}
         to="/home"
         className="nav-link"
-        style={{
-          color: textAccent,
-          transition: "all 0.3s ease",
-          fontWeight: "500",
-        }}
+        style={{ color: textAccent, transition: "all 0.3s ease", fontWeight: "500" }}
       >
         Home
       </Menu.Item>
 
       <Menu.Item
         as={Link}
+        to="/about"
+        className="nav-link"
+        style={{ color: textAccent, transition: "all 0.3s ease", fontWeight: "500" }}
+      >
+        About
+      </Menu.Item>
+
+      <Menu.Item
+        as={Link}
         to="/projects"
         className="nav-link"
-        style={{
-          color: textAccent,
-          transition: "all 0.3s ease",
-          fontWeight: "500",
-        }}
+        style={{ color: textAccent, transition: "all 0.3s ease", fontWeight: "500" }}
       >
         Projects
       </Menu.Item>
@@ -65,37 +66,16 @@ const NavBar: React.FC = () => {
         as={Link}
         to="/resume"
         className="nav-link"
-        style={{
-          color: textAccent,
-          transition: "all 0.3s ease",
-          fontWeight: "500",
-        }}
+        style={{ color: textAccent, transition: "all 0.3s ease", fontWeight: "500" }}
       >
         Resume
       </Menu.Item>
 
       <Menu.Item
         as={Link}
-        to="/legal-research"
-        className="nav-link"
-        style={{
-          color: textAccent,
-          transition: "all 0.3s ease",
-          fontWeight: "500",
-        }}
-      >
-        Legal Research
-      </Menu.Item>
-
-      <Menu.Item
-        as={Link}
         to="/agile"
         className="nav-link"
-        style={{
-          color: textAccent,
-          transition: "all 0.3s ease",
-          fontWeight: "500",
-        }}
+        style={{ color: textAccent, transition: "all 0.3s ease", fontWeight: "500" }}
       >
         Agile / PM
       </Menu.Item>
@@ -112,6 +92,21 @@ const NavBar: React.FC = () => {
         }}
       >
         AI Engineer
+      </Menu.Item>
+
+      <Menu.Item
+        as={Link}
+        to="/legal-research"
+        className="nav-link"
+        style={{
+          color: textAccent,
+          transition: "all 0.3s ease",
+          fontWeight: "400",
+          fontSize: "0.85em",
+          opacity: 0.65,
+        }}
+      >
+        Legal Research
       </Menu.Item>
     </Menu>
   );
