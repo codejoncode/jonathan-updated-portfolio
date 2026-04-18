@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { darkBlack, lighterBlue } from "../../Helpers/Colors/colors";
+import { darkBlack } from "../../Helpers/Colors/colors";
 
 const CYAN = "#00D2FF";
 const GREEN = "#39ff14";
