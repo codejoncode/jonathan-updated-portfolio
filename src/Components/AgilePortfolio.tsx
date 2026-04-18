@@ -386,8 +386,6 @@ export default function AgilePortfolio() {
         <div className="ap-footer-stack">
           <span className="active">✓ CSM Certified</span>
           <span>·</span>
-          <span className="active">✓ PMP Aligned</span>
-          <span>·</span>
           <span>React + CSS</span>
         </div>
       </div>
