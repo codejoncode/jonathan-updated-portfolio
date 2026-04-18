@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@progress/kendo-drawing": "^1.21.2",
-    "@progress/kendo-react-pdf": "^10.0.0",
+    "@progress/kendo-react-pdf": "^14.4.0",
     "@react-pdf/renderer": "^3.4.4",
     "@reduxjs/toolkit": "^2.0.1",
     "@types/react-redux": "^7.1.33",
