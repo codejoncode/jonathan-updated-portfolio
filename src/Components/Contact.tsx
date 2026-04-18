@@ -13,7 +13,14 @@ import {
   glassmorphismBorder,
 } from "../Helpers/Colors/colors";
 import { ContactForm } from "../types";
-import { contactUtils } from "../Helpers/Functions/contactUtils";
+
+// ─────────────────────────────────────────────────────────────────────────────
+// To activate: sign up at https://formspree.io, create a form pointed at
+// jonathanholloway.ail@gmail.com, then replace YOUR_FORM_ID below with the
+// ID from your dashboard (e.g. "xpwzgkbd").
+// ─────────────────────────────────────────────────────────────────────────────
+const FORMSPREE_ID = "YOUR_FORM_ID";
+const FORMSPREE_URL = `https://formspree.io/f/${FORMSPREE_ID}`;
 
 interface ContactProps {
   modalOpen?: boolean;
@@ -33,39 +40,46 @@ const Contact: React.FC<ContactProps> = () => {
     email: "",
     message: "",
   });
-
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setError(null);
 
-    // Use utility function to create mailto link
-    const mailtoLink = contactUtils.createMailtoLink(formData);
+    try {
+      const res = await fetch(FORMSPREE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
 
-    // Open user's email client
-    window.location.href = mailtoLink;
-
-    // Show success message
-    setIsSubmitted(true);
-    setIsLoading(false);
-
-    // Reset form after a delay
-    setTimeout(() => {
-      setFormData({ name: "", email: "", message: "" });
-      setIsSubmitted(false);
-    }, 3000);
+      if (res.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        const data = await res.json();
+        setError(data?.errors?.[0]?.message ?? "Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -101,21 +115,36 @@ const Contact: React.FC<ContactProps> = () => {
               className="glass-card"
               data-testid="contact-success-message"
               style={{
-                background: "rgba(255, 255, 255, 0.1)",
+                background: "rgba(57, 255, 20, 0.08)",
                 color: textPrimary,
-                border: `1px solid ${textAccent}40`,
+                border: `1px solid rgba(57, 255, 20, 0.3)`,
                 borderRadius: "12px",
                 backdropFilter: "blur(10px)",
               }}
             >
               <Message.Header data-testid="contact-success-header">
-                Email Client Opened!
+                Message sent!
               </Message.Header>
               <p data-testid="contact-success-body">
-                Your email client should have opened with a pre-filled message.
-                If it didn't open automatically, please check your default email
-                application settings.
+                Thanks for reaching out — I'll get back to you shortly.
               </p>
+            </Message>
+          )}
+
+          {error && (
+            <Message
+              negative
+              data-testid="contact-error-message"
+              style={{
+                background: "rgba(255, 107, 53, 0.08)",
+                color: textPrimary,
+                border: `1px solid rgba(255, 107, 53, 0.3)`,
+                borderRadius: "12px",
+                backdropFilter: "blur(10px)",
+              }}
+            >
+              <Message.Header>Failed to send</Message.Header>
+              <p>{error}</p>
             </Message>
           )}
 
@@ -133,9 +162,7 @@ const Contact: React.FC<ContactProps> = () => {
             }}
           >
             <Form.Field required>
-              <label style={{ color: textAccent, fontWeight: "600" }}>
-                Name
-              </label>
+              <label style={{ color: textAccent, fontWeight: "600" }}>Name</label>
               <input
                 type="text"
                 name="name"
@@ -157,9 +184,7 @@ const Contact: React.FC<ContactProps> = () => {
             </Form.Field>
 
             <Form.Field required>
-              <label style={{ color: textAccent, fontWeight: "600" }}>
-                Email
-              </label>
+              <label style={{ color: textAccent, fontWeight: "600" }}>Email</label>
               <input
                 type="email"
                 name="email"
@@ -181,9 +206,7 @@ const Contact: React.FC<ContactProps> = () => {
             </Form.Field>
 
             <Form.Field required>
-              <label style={{ color: textAccent, fontWeight: "600" }}>
-                Message
-              </label>
+              <label style={{ color: textAccent, fontWeight: "600" }}>Message</label>
               <textarea
                 name="message"
                 value={formData.message}
@@ -213,8 +236,7 @@ const Contact: React.FC<ContactProps> = () => {
                 className="modern-button"
                 data-testid="contact-submit-button"
                 style={{
-                  background:
-                    "linear-gradient(135deg, var(--cyan-primary), var(--blue-primary))",
+                  background: "linear-gradient(135deg, var(--cyan-primary), var(--blue-primary))",
                   color: "white",
                   padding: "12px 30px",
                   fontSize: "1.1em",
@@ -223,7 +245,7 @@ const Contact: React.FC<ContactProps> = () => {
                   fontWeight: "600",
                 }}
               >
-                Send Message
+                {isLoading ? "Sending…" : "Send Message"}
               </Button>
             </div>
           </Form>
@@ -285,21 +307,13 @@ const Contact: React.FC<ContactProps> = () => {
               </a>
             </div>
             <p
-              style={{
-                color: textPrimary,
-                fontSize: "1.1em",
-                marginBottom: "5px",
-              }}
+              style={{ color: textPrimary, fontSize: "1.1em", marginBottom: "5px" }}
               data-testid="contact-location"
             >
               📍 Located in Crown Point, IN, USA
             </p>
             <p
-              style={{
-                color: textPrimary,
-                fontSize: "0.9em",
-                fontStyle: "italic",
-              }}
+              style={{ color: textPrimary, fontSize: "0.9em", fontStyle: "italic" }}
               data-testid="contact-remote-note"
             >
               Open to remote opportunities worldwide
