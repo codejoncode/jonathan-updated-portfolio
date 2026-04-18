@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { to: "/resume",         label: "Resume" },
   { to: "/agile",          label: "Agile / PM" },
   { to: "/ai-engineer",    label: "AI Engineer", highlight: true },
+  { to: "/ai-bug-triage",  label: "Bug Triage ✦", highlight: true },
   { to: "/blog",           label: "Blog" },
   { to: "/legal-research", label: "Legal Research", muted: true },
 ];

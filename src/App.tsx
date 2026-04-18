@@ -29,6 +29,7 @@ import AIEngineerPortfolio from "./Components/AIEngineerPortfolio";
 import About from "./Components/About/About";
 import AILegalResearch from "./Components/CaseStudy/AILegalResearch";
 import LayoffToLeverage from "./Components/Blog/LayoffToLeverage";
+import BugTriage from "./Components/BugTriage/BugTriage";
 
 // TypeScript interfaces
 interface AppState {
@@ -86,6 +87,7 @@ const App: React.FC = () => {
         <Route path="/about" element={<About />} />
         <Route path="/case-study/ai-legal-research" element={<AILegalResearch />} />
         <Route path="/blog/layoff-to-leverage" element={<LayoffToLeverage />} />
+        <Route path="/ai-bug-triage" element={<BugTriage />} />
         <Route
           path="/contact"
           element={
