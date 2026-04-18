@@ -13,24 +13,6 @@ const mockResumeUtils = {
 };
 jest.mock("./resumeUtils", () => mockResumeUtils, { virtual: true });
 
-// Mock html2canvas and jsPDF
-jest.mock("html2canvas", () => ({
-  __esModule: true,
-  default: jest.fn().mockResolvedValue({
-    toDataURL: () => "data:image/png;base64,mock-data",
-    height: 800,
-    width: 600,
-  }),
-}));
-jest.mock("jspdf", () => ({
-  __esModule: true,
-  default: jest.fn().mockImplementation(() => ({
-    addImage: jest.fn(),
-    addPage: jest.fn(),
-    save: jest.fn(),
-  })),
-}));
-
 // Mock ResumePage and expose the mocks
 jest.mock("./ResumePage", () => {
   const React = require("react");
