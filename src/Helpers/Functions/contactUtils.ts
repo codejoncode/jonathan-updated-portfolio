@@ -22,7 +22,7 @@ Sent from Jonathan Holloway Portfolio Contact Form
   // Create complete mailto link
   createMailtoLink: (
     formData: ContactForm,
-    recipientEmail: string = "jonathanjamelholloway@gmail.com",
+    recipientEmail: string = "jonathanholloway.ail@gmail.com",
   ) => {
     const subject = contactUtils.createContactSubject(formData.name);
     const body = contactUtils.createContactBody(formData);

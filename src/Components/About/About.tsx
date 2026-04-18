@@ -18,16 +18,16 @@ const TIMELINE = [
   },
   {
     year: "2019–2021",
-    label: "Bloom Institute of Technology",
+    label: "Bloom Institute of Technology  ·  Concurrent with Perficient",
     detail:
       "Enrolled in a full computer science and full-stack engineering program. Didn't just graduate — became a Teaching Assistant, leading lectures for 17+ students using AI-enhanced teaching methodologies that reduced common errors and accelerated concept retention.",
     accent: "#39ff14",
   },
   {
-    year: "2021–2023",
-    label: "Technical Consultant — Perficient",
+    year: "Aug 2019 – Jul 2023",
+    label: "Intern → Associate TC → Technical Consultant — Perficient",
     detail:
-      "Enterprise consulting at a top digital transformation firm. Gathered requirements, recommended technical solutions, and built full-stack features. Diagnosed critical financial system bugs using AI-assisted code analysis and built scalable Jest testing frameworks. Learned how to own a room and earn trust fast.",
+      "Started as an intern while finishing Bloom — earned two promotions in four years. Gathered enterprise requirements, recommended technical solutions, and built full-stack features for clients. Diagnosed critical financial system bugs using AI-assisted code analysis and built scalable Jest testing frameworks. Learned how to own a room, earn trust fast, and deliver in a professional services environment.",
     accent: "#ff6b35",
   },
   {
@@ -107,10 +107,11 @@ const About: React.FC = () => {
           <p style={{ color: "#ccd6f6", fontSize: "1.1rem", marginTop: "20px" }}>
             While most people were commuting to offices, I was commuting from a
             9-to-5 to a laptop. By the time I finished the program I was already
-            a Teaching Assistant, leading lectures for the next cohort. From
-            there: Technical Project Manager at Larkist.com, a data science and
-            AI-powered platform — coordinating engineers, data scientists, and
-            stakeholders to ship real product.
+            a Teaching Assistant, leading lectures for the next cohort —{" "}
+            <em style={{ color: lighterBlue }}>while simultaneously working at Perficient</em>,
+            where I started as an intern in August 2019 and earned two promotions
+            over four years to Technical Consultant. Enterprise clients. Real requirements.
+            Financial systems. Delivered.
           </p>
           <p style={{ color: "#ccd6f6", fontSize: "1.1rem", marginTop: "20px" }}>
             Today I build AI systems. RAG pipelines, LLM integrations, autonomous
