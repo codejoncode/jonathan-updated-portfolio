@@ -10,32 +10,32 @@ const TIMELINE = [
     accent: "#00D2FF",
   },
   {
-    year: "2014–2019",
+    year: "2014–2018",
     label: "Learning While Working",
     detail:
       "Warehousing, truck loading and unloading, cleaning crews, tech support, sales — I worked every job I could find 9-to-5. Then came home and opened the laptop. Built scripts that did the data work faster. Proved the idea worked.",
     accent: "#7b61ff",
   },
   {
-    year: "2019–2021",
-    label: "Bloom Institute of Technology  ·  Concurrent with Perficient",
+    year: "2018–2019",
+    label: "Bloom Institute of Technology (Lambda School)",
     detail:
-      "Enrolled in a full computer science and full-stack engineering program. Didn't just graduate — became a Teaching Assistant, leading lectures for 17+ students using AI-enhanced teaching methodologies that reduced common errors and accelerated concept retention.",
+      "Completed 960+ hours of instructor-led full-stack engineering across 20 sprints — from HTML/CSS through React/Redux, Node.js, SQL, and Applied Computer Science. Then stayed as a Teaching Assistant for the CS Integration section: data structures, algorithms, graphs, hash tables, Big O, system design, and interview prep. Taught the same concepts I had just mastered.",
     accent: "#39ff14",
+  },
+  {
+    year: "2018–2019",
+    label: "Technical Project Manager — Larkist.com",
+    detail:
+      "While completing the program, served as Technical PM at Larkist.com — a data science and AI-powered full-stack platform. Coordinated engineers, data scientists, and stakeholders. Applied Agile ceremonies end-to-end to ship real product.",
+    accent: "#ffc947",
   },
   {
     year: "Aug 2019 – Jul 2023",
     label: "Intern → Associate TC → Technical Consultant — Perficient",
     detail:
-      "Started as an intern while finishing Bloom — earned two promotions in four years. Gathered enterprise requirements, recommended technical solutions, and built full-stack features for clients. Diagnosed critical financial system bugs using AI-assisted code analysis and built scalable Jest testing frameworks. Learned how to own a room, earn trust fast, and deliver in a professional services environment.",
+      "Hired at Perficient as an intern — earned two promotions in four years to Technical Consultant. Gathered enterprise requirements, recommended technical solutions, and built full-stack features for clients. Diagnosed critical financial system bugs and built scalable Jest testing frameworks. Learned to own a room, earn trust fast, and deliver in a professional services environment.",
     accent: "#ff6b35",
-  },
-  {
-    year: "2021–2023",
-    label: "Technical Project Manager — Larkist.com",
-    detail:
-      "Led delivery on a data science and AI-powered full-stack platform. Coordinated engineers, data scientists, and stakeholders. Applied Agile ceremonies end-to-end — from sprint planning to retrospectives — to ship real product on time.",
-    accent: "#ffc947",
   },
   {
     year: "Now",
@@ -106,12 +106,15 @@ const About: React.FC = () => {
           </p>
           <p style={{ color: "#ccd6f6", fontSize: "1.1rem", marginTop: "20px" }}>
             While most people were commuting to offices, I was commuting from a
-            9-to-5 to a laptop. By the time I finished the program I was already
-            a Teaching Assistant, leading lectures for the next cohort —{" "}
-            <em style={{ color: lighterBlue }}>while simultaneously working at Perficient</em>,
-            where I started as an intern in August 2019 and earned two promotions
-            over four years to Technical Consultant. Enterprise clients. Real requirements.
-            Financial systems. Delivered.
+            9-to-5 to a laptop. I completed 960+ hours at Bloom Institute of
+            Technology (formerly Lambda School) — then immediately stayed on as a
+            Teaching Assistant for the{" "}
+            <em style={{ color: lighterBlue }}>Computer Science Integration section</em>:
+            data structures, algorithms, system design, and interview prep.
+            Concurrently served as Technical PM at Larkist.com, shipping an
+            AI-powered product. In August 2019 I was hired at Perficient as an
+            intern and earned two promotions to Technical Consultant over four years.
+            Enterprise clients. Real requirements. Financial systems. Delivered.
           </p>
           <p style={{ color: "#ccd6f6", fontSize: "1.1rem", marginTop: "20px" }}>
             Today I build AI systems. RAG pipelines, LLM integrations, autonomous
