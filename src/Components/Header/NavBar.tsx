@@ -63,7 +63,7 @@ const NavBar: React.FC = () => {
         {/* Logo */}
         <Link to="/" style={{ display: "flex", alignItems: "center", padding: "8px 0" }}>
           <Image
-            src="/images/icon.png"
+            src="/icon.png"
             size="mini"
             alt="Portfolio Logo"
             style={{ filter: "brightness(1.2) saturate(1.5)", transition: "all 0.3s ease" }}

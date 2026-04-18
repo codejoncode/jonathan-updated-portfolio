@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Grid,
   Header,
@@ -169,6 +170,49 @@ const HomePageHeader: React.FC = () => {
             ))}
           </Grid.Row>
         </Grid>
+
+        {/* Live Demo CTA */}
+        <div style={{
+          maxWidth: "1000px",
+          margin: "24px auto 0",
+          background: "linear-gradient(135deg, rgba(0,210,255,0.06), rgba(123,97,255,0.06))",
+          border: "1px solid rgba(0,210,255,0.2)",
+          borderRadius: "16px",
+          padding: "28px 32px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: "16px",
+        }}>
+          <div>
+            <div style={{ color: "#ff6b35", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "6px" }}>
+              Live Demo · Serverless AI Tool
+            </div>
+            <div style={{ color: "#ccd6f6", fontSize: "1.1rem", fontWeight: 700, marginBottom: "4px" }}>
+              AI Bug Triage Assistant
+            </div>
+            <div style={{ color: "#8892b0", fontSize: "0.88rem" }}>
+              Paste any stack trace — get root cause, fix, and prevention in under 1 second.
+            </div>
+          </div>
+          <Link
+            to="/ai-bug-triage"
+            style={{
+              background: "linear-gradient(135deg, #00D2FF, #7b61ff)",
+              color: "#0f0f23",
+              padding: "12px 28px",
+              borderRadius: "8px",
+              textDecoration: "none",
+              fontWeight: 700,
+              fontSize: "0.92rem",
+              whiteSpace: "nowrap",
+              flexShrink: 0,
+            }}
+          >
+            Try It Live →
+          </Link>
+        </div>
       </Grid.Column>
     </Container>
   );
